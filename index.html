@@ -1,4403 +1,2896 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="theme-color" content="#070b12">
+<meta name="description" content="Muhammad Vieri Al Falaq — Physics Education, Embedded Systems, ECU Technology and Engineering Projects.">
+<meta name="author" content="Muhammad Vieri Al Falaq">
+
+<meta property="og:title" content="Muhammad Vieri Al Falaq | Portfolio">
+<meta property="og:description" content="Physics Education • Embedded Systems • ECU Technology">
+<meta property="og:type" content="website">
+
+<title>Muhammad Vieri Al Falaq | Portfolio</title>
+
+<style>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --bg: #070b12;
+    --bg2: #0a1019;
+    --card: rgba(15, 23, 35, .72);
+    --card-solid: #101824;
+
+    --text: #edf4ff;
+    --muted: #94a3b8;
+
+    --cyan: #00d4ff;
+    --blue: #3b82f6;
+    --purple: #8b5cf6;
+    --green: #32d583;
+
+    --border: rgba(255,255,255,.09);
+
+    --max: 1180px;
+    --nav: 72px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--cyan);
+    color: #001018;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0,212,255,.055),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(139,92,246,.045),
+            transparent 30%
+        ),
+        var(--bg);
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
+
+    opacity: .7;
+}
+
+.glow {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    opacity: .07;
+
+    filter: blur(80px);
+
+    contain: strict;
+}
+
+.glow.one {
+    background: var(--cyan);
+    left: -200px;
+    top: -180px;
+}
+
+.glow.two {
+    background: var(--purple);
+    right: -200px;
+    top: 45%;
+}
+
 
-    <meta
-        name="description"
-        content="Muhammad Vieri Al Falaq — Portfolio, CV, Technology, Embedded Systems, ECU Technology, IoT, Multimedia and Education."
-    >
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-    <meta
-        name="author"
-        content="Muhammad Vieri Al Falaq"
-    >
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-    <meta
-        name="theme-color"
-        content="#07111f"
-    >
+    height: var(--nav);
 
-    <meta
-        property="og:title"
-        content="Muhammad Vieri Al Falaq | Portfolio"
-    >
+    z-index: 1000;
 
-    <meta
-        property="og:description"
-        content="Physics Education • Technology • Embedded Systems • ECU • IoT • Multimedia"
-    >
+    background: rgba(7,11,18,.86);
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
-    <title>
-        Muhammad Vieri Al Falaq | Portfolio
-    </title>
+    border-bottom: 1px solid var(--border);
+}
 
-    <style>
+.nav-container {
+    width: min(var(--max), calc(100% - 40px));
+    height: 100%;
+    margin: auto;
 
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        :root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-            --bg: #050914;
-            --bg-2: #09111f;
-            --bg-3: #0d1727;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
 
-            --card: rgba(13, 23, 39, .72);
-            --card-solid: #0d1727;
+    font-weight: 850;
+    letter-spacing: -.5px;
+}
 
-            --text: #f4f7fb;
-            --text-soft: #c8d1df;
-            --muted: #8d9bb0;
+.brand-mark {
+    width: 39px;
+    height: 39px;
 
-            --accent: #00d9ff;
-            --accent-2: #7c3aed;
-            --success: #39e58c;
+    display: grid;
+    place-items: center;
 
-            --border: rgba(255,255,255,.09);
-            --border-light: rgba(255,255,255,.15);
+    border-radius: 11px;
 
-            --shadow:
-                0 30px 80px rgba(0,0,0,.35);
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple)
+        );
 
-            --radius: 22px;
+    color: white;
 
-            --max: 1180px;
+    font-size: 14px;
+    font-weight: 900;
 
-            --nav-height: 74px;
+    box-shadow: 0 8px 25px rgba(0,212,255,.12);
+}
 
-            --transition:
-                .3s cubic-bezier(.2,.8,.2,1);
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
 
+    list-style: none;
+}
 
-        /* =========================================================
-           LIGHT MODE
-        ========================================================= */
+.nav-links a {
+    color: var(--muted);
 
-        body.light {
+    font-size: 13px;
+    font-weight: 700;
 
-            --bg: #f5f8fc;
-            --bg-2: #edf2f8;
-            --bg-3: #e8eef6;
+    transition: color .2s ease;
+}
 
-            --card: rgba(255,255,255,.78);
-            --card-solid: #ffffff;
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--cyan);
+}
 
-            --text: #101827;
-            --text-soft: #344054;
-            --muted: #667085;
+.menu-toggle {
+    display: none;
 
-            --border: rgba(15,23,42,.10);
-            --border-light: rgba(15,23,42,.16);
+    width: 42px;
+    height: 42px;
 
-            --shadow:
-                0 30px 80px rgba(15,23,42,.12);
-        }
+    border: 1px solid var(--border);
+    border-radius: 10px;
 
-
-        /* =========================================================
-           RESET
-        ========================================================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-
-            font-family:
-                Inter,
-                ui-sans-serif,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Helvetica,
-                Arial,
-                sans-serif;
+    background: transparent;
+    color: var(--text);
 
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(0,217,255,.07),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 35%,
-                    rgba(124,58,237,.07),
-                    transparent 30%
-                ),
-                var(--bg);
+    cursor: pointer;
+}
 
-            color: var(--text);
 
-            line-height: 1.7;
+/* =========================================================
+   GENERAL
+========================================================= */
 
-            overflow-x: hidden;
+.container {
+    width: min(var(--max), calc(100% - 40px));
+    margin: auto;
+}
 
-            transition:
-                background .4s ease,
-                color .4s ease;
-        }
+section {
+    padding: 110px 0;
+}
 
-        body.menu-open {
-            overflow: hidden;
-        }
+.section-header {
+    max-width: 720px;
+    margin-bottom: 50px;
+}
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-        button {
-            font: inherit;
-        }
+    margin-bottom: 12px;
 
-        img {
-            max-width: 100%;
-        }
+    color: var(--cyan);
 
-        ::selection {
-            background: var(--accent);
-            color: #001018;
-        }
+    font-size: 12px;
+    font-weight: 850;
 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
-        /* =========================================================
-           BACKGROUND
-        ========================================================= */
+.section-label::before {
+    content: "";
 
-        .background {
-            position: fixed;
-            inset: 0;
+    width: 26px;
+    height: 2px;
 
-            z-index: -10;
+    background: var(--cyan);
+}
 
-            pointer-events: none;
+.section-title {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -1.8px;
 
-            overflow: hidden;
-        }
+    margin-bottom: 15px;
+}
 
-        .grid {
+.section-description {
+    color: var(--muted);
+    font-size: 15px;
+}
 
-            position: absolute;
-            inset: 0;
 
-            background-image:
-                linear-gradient(
-                    rgba(255,255,255,.025) 1px,
-                    transparent 1px
-                ),
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,.025) 1px,
-                    transparent 1px
-                );
+/* =========================================================
+   HERO
+========================================================= */
 
-            background-size: 50px 50px;
+.hero {
+    min-height: 100svh;
 
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent 85%
-                );
-        }
+    padding-top: calc(var(--nav) + 70px);
+    padding-bottom: 70px;
 
-        .orb {
+    display: flex;
+    align-items: center;
+}
 
-            position: absolute;
+.hero-content {
+    display: grid;
 
-            width: 420px;
-            height: 420px;
+    grid-template-columns: 1.15fr .85fr;
 
-            border-radius: 50%;
+    align-items: center;
 
-            filter: blur(100px);
+    gap: 60px;
+}
 
-            opacity: .12;
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-            animation:
-                floatOrb 12s ease-in-out infinite;
-        }
+    padding: 7px 13px;
 
-        .orb.one {
-            background: var(--accent);
+    margin-bottom: 24px;
 
-            left: -180px;
-            top: -180px;
-        }
+    border: 1px solid var(--border);
+    border-radius: 999px;
 
-        .orb.two {
+    background: rgba(255,255,255,.025);
 
-            background: var(--accent-2);
+    color: var(--muted);
 
-            right: -180px;
-            top: 30%;
+    font-size: 12px;
+    font-weight: 650;
+}
 
-            animation-delay: -4s;
-        }
+.status-dot {
+    width: 8px;
+    height: 8px;
 
-        .orb.three {
+    border-radius: 50%;
 
-            background: #2563eb;
+    background: var(--green);
 
-            left: 35%;
-            bottom: -300px;
+    box-shadow: 0 0 12px rgba(50,213,131,.7);
+}
 
-            animation-delay: -7s;
-        }
+.hero h1 {
+    max-width: 850px;
 
-        @keyframes floatOrb {
+    font-size: clamp(46px, 7vw, 84px);
 
-            0%,100% {
-                transform: translate3d(0,0,0);
-            }
+    line-height: .98;
 
-            50% {
-                transform: translate3d(40px,-30px,0);
-            }
-        }
+    letter-spacing: -4px;
 
+    margin-bottom: 25px;
+}
 
-        /* =========================================================
-           NAVBAR
-        ========================================================= */
+.gradient {
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            #ffffff 45%,
+            #a78bfa
+        );
 
-        .navbar {
+    -webkit-background-clip: text;
+    background-clip: text;
 
-            position: fixed;
+    color: transparent;
+}
 
-            top: 0;
-            left: 0;
+.hero-subtitle {
+    max-width: 670px;
 
-            width: 100%;
-            height: var(--nav-height);
+    color: var(--muted);
 
-            z-index: 999;
+    font-size: clamp(16px, 2vw, 19px);
 
-            background:
-                rgba(5,9,20,.68);
+    margin-bottom: 32px;
+}
 
-            backdrop-filter:
-                blur(18px);
+.hero-subtitle strong {
+    color: var(--text);
+}
 
-            -webkit-backdrop-filter:
-                blur(18px);
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
-            border-bottom:
-                1px solid var(--border);
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-            transition:
-                background var(--transition);
-        }
+    min-height: 46px;
 
-        body.light .navbar {
-            background:
-                rgba(245,248,252,.75);
-        }
+    padding: 12px 18px;
 
-        .nav-container {
+    border-radius: 11px;
 
-            width:
-                min(
-                    var(--max),
-                    calc(100% - 40px)
-                );
+    font-size: 13px;
+    font-weight: 800;
 
-            height: 100%;
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
 
-            margin: auto;
+    will-change: transform;
+}
 
-            display: flex;
+.btn:hover {
+    transform: translateY(-3px);
+}
 
-            align-items: center;
+.btn-primary {
+    background: var(--cyan);
+    color: #031018;
 
-            justify-content: space-between;
-        }
+    box-shadow:
+        0 10px 30px rgba(0,212,255,.14);
+}
 
-        .brand {
+.btn-primary:hover {
+    box-shadow:
+        0 15px 40px rgba(0,212,255,.22);
+}
 
-            display: flex;
+.btn-secondary {
+    border: 1px solid var(--border);
 
-            align-items: center;
+    background: rgba(255,255,255,.035);
 
-            gap: 12px;
+    color: var(--text);
+}
 
-            font-weight: 900;
+.btn-secondary:hover {
+    background: rgba(255,255,255,.075);
+    border-color: rgba(0,212,255,.25);
+}
 
-            letter-spacing: -.5px;
-        }
 
-        .brand-mark {
+/* =========================================================
+   HERO PROFILE
+========================================================= */
 
-            width: 40px;
-            height: 40px;
+.hero-visual {
+    display: flex;
+    justify-content: center;
+}
 
-            display: grid;
+.profile-orbit {
+    position: relative;
 
-            place-items: center;
+    width: min(390px, 80vw);
+    aspect-ratio: 1;
 
-            border-radius: 12px;
+    display: grid;
+    place-items: center;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--accent),
-                    var(--accent-2)
-                );
+.orbit {
+    position: absolute;
+    inset: 0;
 
-            color: white;
+    border: 1px solid rgba(0,212,255,.14);
 
-            box-shadow:
-                0 0 30px
-                rgba(0,217,255,.18);
-        }
+    border-radius: 50%;
 
-        .brand-name {
-            font-size: 15px;
-        }
+    animation: rotate 20s linear infinite;
 
-        .brand-name span {
-            color: var(--accent);
-        }
+    will-change: transform;
+}
 
-        .nav-right {
+.orbit::before {
+    content: "";
 
-            display: flex;
+    position: absolute;
 
-            align-items: center;
+    width: 10px;
+    height: 10px;
 
-            gap: 24px;
-        }
+    top: 14%;
+    left: 5%;
 
-        .nav-links {
+    border-radius: 50%;
 
-            display: flex;
+    background: var(--cyan);
 
-            align-items: center;
+    box-shadow: 0 0 18px var(--cyan);
+}
 
-            gap: 25px;
+.orbit.two {
+    inset: 38px;
 
-            list-style: none;
-        }
+    border-color: rgba(139,92,246,.16);
 
-        .nav-links a {
+    animation-duration: 14s;
+    animation-direction: reverse;
+}
 
-            position: relative;
+.profile-card {
+    position: relative;
 
-            color: var(--muted);
+    width: 250px;
+    min-height: 320px;
 
-            font-size: 13px;
+    padding: 25px;
 
-            font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-            transition:
-                color var(--transition);
-        }
+    border: 1px solid var(--border);
+    border-radius: 24px;
 
-        .nav-links a::after {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
 
-            content: "";
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35);
 
-            position: absolute;
+    overflow: hidden;
+}
 
-            left: 0;
-            bottom: -7px;
+.profile-photo {
+    width: 140px;
+    height: 140px;
 
-            width: 0;
-            height: 2px;
+    object-fit: cover;
 
-            border-radius: 10px;
+    border-radius: 50%;
 
-            background: var(--accent);
+    border: 2px solid rgba(0,212,255,.4);
 
-            transition:
-                width var(--transition);
-        }
+    margin-bottom: 20px;
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
+    background: #111827;
+}
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
+.profile-fallback {
+    width: 140px;
+    height: 140px;
 
-        .theme-toggle {
+    display: none;
+    place-items: center;
 
-            width: 38px;
-            height: 38px;
+    border-radius: 50%;
 
-            display: grid;
-            place-items: center;
+    margin-bottom: 20px;
 
-            border: 1px solid var(--border);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,212,255,.18),
+            rgba(139,92,246,.25)
+        );
 
-            border-radius: 10px;
+    font-size: 42px;
+    font-weight: 900;
+}
 
-            background:
-                rgba(255,255,255,.04);
+.profile-card h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
 
-            color: var(--text);
+.profile-card p {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
 
-            cursor: pointer;
+.profile-role {
+    margin-top: 12px;
 
-            transition:
-                transform var(--transition),
-                background var(--transition);
-        }
+    padding: 5px 10px;
 
-        .theme-toggle:hover {
-            transform: rotate(12deg);
-            background:
-                rgba(0,217,255,.08);
-        }
+    border: 1px solid var(--border);
+    border-radius: 999px;
 
-        .menu-toggle {
+    color: var(--cyan);
 
-            display: none;
+    font-size: 10px;
+    font-weight: 800;
 
-            width: 42px;
-            height: 42px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-            border:
-                1px solid var(--border);
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
 
-            border-radius: 10px;
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-            background: transparent;
 
-            color: var(--text);
+/* =========================================================
+   STATS
+========================================================= */
 
-            cursor: pointer;
-        }
+.stats {
+    padding-top: 0;
+}
 
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 
-        /* =========================================================
-           GENERAL
-        ========================================================= */
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
 
-        .container {
+.stat {
+    padding: 27px 18px;
 
-            width:
-                min(
-                    var(--max),
-                    calc(100% - 40px)
-                );
+    text-align: center;
 
-            margin: auto;
-        }
+    border-right: 1px solid var(--border);
+}
 
-        section {
-            padding: 110px 0;
-        }
+.stat:last-child {
+    border-right: none;
+}
 
-        .section-header {
+.stat-number {
+    display: block;
 
-            max-width: 760px;
+    color: var(--cyan);
 
-            margin-bottom: 55px;
-        }
+    font-size: 28px;
+    font-weight: 900;
+}
 
-        .section-label {
+.stat-label {
+    color: var(--muted);
+    font-size: 12px;
+}
 
-            display: inline-flex;
 
-            align-items: center;
+/* =========================================================
+   ABOUT
+========================================================= */
 
-            gap: 9px;
+.about-grid {
+    display: grid;
 
-            margin-bottom: 13px;
+    grid-template-columns: .75fr 1.25fr;
 
-            color: var(--accent);
+    gap: 60px;
 
-            font-size: 12px;
+    align-items: start;
+}
 
-            font-weight: 900;
+.about-card {
+    padding: 28px;
 
-            letter-spacing: 2px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
 
-            text-transform: uppercase;
-        }
+    background: var(--card);
 
-        .section-label::before {
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.12);
+}
 
-            content: "";
+.about-card p {
+    color: var(--muted);
+    font-size: 14px;
 
-            width: 30px;
-            height: 2px;
+    margin-bottom: 17px;
+}
 
-            background: var(--accent);
-        }
+.about-card p:last-child {
+    margin-bottom: 0;
+}
 
-        .section-title {
+.info-list {
+    display: grid;
+    gap: 14px;
 
-            font-size:
-                clamp(
-                    34px,
-                    5vw,
-                    54px
-                );
+    list-style: none;
+}
 
-            line-height: 1.05;
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 
-            letter-spacing: -2px;
+    padding-bottom: 13px;
 
-            margin-bottom: 17px;
-        }
+    border-bottom: 1px solid var(--border);
+}
 
-        .section-description {
+.info-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
 
-            color: var(--muted);
+.info-label {
+    color: var(--muted);
+    font-size: 13px;
+}
 
-            font-size: 16px;
+.info-value {
+    text-align: right;
 
-            max-width: 680px;
-        }
+    font-size: 13px;
+    font-weight: 750;
+}
 
 
-        /* =========================================================
-           HERO
-        ========================================================= */
+/* =========================================================
+   SKILLS
+========================================================= */
 
-        .hero {
+.skills-grid {
+    display: grid;
 
-            min-height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
 
-            padding-top:
-                calc(
-                    var(--nav-height) + 70px
-                );
+    gap: 16px;
+}
 
-            display: flex;
+.skill-card {
+    padding: 24px;
 
-            align-items: center;
-        }
+    border: 1px solid var(--border);
+    border-radius: 18px;
 
-        .hero-grid {
+    background: var(--card);
 
-            display: grid;
+    transition:
+        transform .22s ease,
+        border-color .22s ease;
 
-            grid-template-columns:
-                1.15fr .85fr;
+    will-change: transform;
+}
 
-            gap: 70px;
+.skill-card:hover {
+    transform: translateY(-5px);
 
-            align-items: center;
-        }
+    border-color:
+        rgba(0,212,255,.3);
+}
 
-        .availability {
+.skill-icon {
+    width: 44px;
+    height: 44px;
 
-            display: inline-flex;
+    display: grid;
+    place-items: center;
 
-            align-items: center;
+    margin-bottom: 15px;
 
-            gap: 10px;
+    border-radius: 11px;
 
-            padding:
-                8px 14px;
+    background:
+        rgba(0,212,255,.075);
 
-            margin-bottom: 25px;
+    color: var(--cyan);
 
-            border:
-                1px solid var(--border);
+    font-size: 19px;
+}
 
-            border-radius: 999px;
+.skill-card h3 {
+    font-size: 16px;
 
-            background:
-                rgba(255,255,255,.035);
+    margin-bottom: 7px;
+}
 
-            color: var(--muted);
+.skill-card p {
+    color: var(--muted);
 
-            font-size: 12px;
+    font-size: 13px;
+}
 
-            font-weight: 700;
-        }
 
-        .availability-dot {
+/* =========================================================
+   PROJECTS
+========================================================= */
 
-            width: 8px;
-            height: 8px;
+.projects-grid {
+    display: grid;
 
-            border-radius: 50%;
+    grid-template-columns: repeat(2, 1fr);
 
-            background: var(--success);
+    gap: 18px;
+}
 
-            box-shadow:
-                0 0 14px
-                rgba(57,229,140,.8);
+.project-card {
+    position: relative;
 
-            animation:
-                pulse 2s ease-in-out infinite;
-        }
+    min-height: 300px;
 
-        @keyframes pulse {
+    padding: 28px;
 
-            0%,100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+    display: flex;
+    flex-direction: column;
 
-            50% {
-                opacity: .5;
-                transform: scale(.7);
-            }
-        }
+    border: 1px solid var(--border);
+    border-radius: 20px;
 
-        .hero h1 {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.015)
+        );
 
-            font-size:
-                clamp(
-                    48px,
-                    7vw,
-                    88px
-                );
+    overflow: hidden;
 
-            line-height: .98;
+    transition:
+        transform .22s ease,
+        border-color .22s ease;
 
-            letter-spacing: -4px;
+    will-change: transform;
+}
 
-            margin-bottom: 26px;
-        }
+.project-card:hover {
+    transform: translateY(-6px);
 
-        .hero h1 .gradient {
+    border-color:
+        rgba(0,212,255,.28);
+}
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--accent),
-                    #fff 45%,
-                    #a78bfa
-                );
+.project-number {
+    color: rgba(255,255,255,.1);
 
-            -webkit-background-clip: text;
+    font-size: 48px;
+    font-weight: 900;
 
-            background-clip: text;
+    line-height: 1;
 
-            color: transparent;
-        }
+    margin-bottom: 20px;
+}
 
-        .hero-subtitle {
+.project-card h3 {
+    font-size: 21px;
 
-            max-width: 680px;
+    margin-bottom: 10px;
+}
 
-            color: var(--muted);
+.project-card p {
+    color: var(--muted);
 
-            font-size:
-                clamp(
-                    17px,
-                    2vw,
-                    20px
-                );
+    font-size: 13px;
 
-            margin-bottom: 34px;
-        }
+    margin-bottom: 20px;
+}
 
-        .hero-subtitle strong {
-            color: var(--text);
-        }
+.tags {
+    display: flex;
+    flex-wrap: wrap;
 
-        .hero-buttons {
+    gap: 6px;
 
-            display: flex;
+    margin-top: auto;
+}
 
-            flex-wrap: wrap;
+.tag {
+    padding: 5px 9px;
 
-            gap: 12px;
-        }
+    border: 1px solid var(--border);
+    border-radius: 999px;
 
-        .btn {
+    color: #b9c5d6;
 
-            display: inline-flex;
+    font-size: 10px;
+    font-weight: 750;
+}
 
-            align-items: center;
 
-            justify-content: center;
+/* =========================================================
+   TIMELINE
+========================================================= */
 
-            gap: 9px;
+.timeline {
+    position: relative;
 
-            padding:
-                13px 20px;
+    max-width: 850px;
 
-            border-radius: 12px;
+    margin: auto;
+}
 
-            font-size: 13px;
+.timeline::before {
+    content: "";
 
-            font-weight: 900;
+    position: absolute;
 
-            transition:
-                transform var(--transition),
-                box-shadow var(--transition),
-                background var(--transition);
-        }
+    left: 8px;
+    top: 0;
+    bottom: 0;
 
-        .btn:hover {
-            transform: translateY(-3px);
-        }
+    width: 1px;
 
-        .btn-primary {
+    background: var(--border);
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--accent),
-                    #22b8e8
-                );
+.timeline-item {
+    position: relative;
 
-            color: #021018;
+    padding-left: 42px;
+    padding-bottom: 42px;
+}
 
-            box-shadow:
-                0 15px 40px
-                rgba(0,217,255,.15);
-        }
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
 
-        .btn-primary:hover {
+.timeline-dot {
+    position: absolute;
 
-            box-shadow:
-                0 20px 55px
-                rgba(0,217,255,.25);
-        }
+    left: 2px;
+    top: 6px;
 
-        .btn-secondary {
+    width: 13px;
+    height: 13px;
 
-            border:
-                1px solid var(--border);
+    border-radius: 50%;
 
-            background:
-                rgba(255,255,255,.04);
+    background: var(--cyan);
 
-            color: var(--text);
-        }
+    box-shadow:
+        0 0 0 5px rgba(0,212,255,.07),
+        0 0 15px rgba(0,212,255,.4);
+}
 
-        .btn-secondary:hover {
-            background:
-                rgba(255,255,255,.08);
-        }
+.timeline-date {
+    color: var(--cyan);
 
+    font-size: 11px;
+    font-weight: 850;
 
-        /* =========================================================
-           HERO PROFILE
-        ========================================================= */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        .hero-visual {
+.timeline-item h3 {
+    font-size: 18px;
 
-            display: flex;
+    margin: 4px 0;
+}
 
-            justify-content: center;
-        }
+.timeline-item p {
+    color: var(--muted);
 
-        .profile-orbit {
+    font-size: 13px;
+}
 
-            position: relative;
 
-            width:
-                min(
-                    410px,
-                    85vw
-                );
+/* =========================================================
+   CERTIFICATES
+========================================================= */
 
-            aspect-ratio: 1;
+.certificates {
+    display: grid;
 
-            display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-            place-items: center;
-        }
+    gap: 16px;
+}
 
-        .orbit {
+.certificate {
+    padding: 23px;
 
-            position: absolute;
+    border: 1px solid var(--border);
+    border-radius: 18px;
 
-            inset: 0;
+    background: var(--card);
+}
 
-            border:
-                1px solid
-                rgba(0,217,255,.18);
+.certificate-icon {
+    font-size: 25px;
 
-            border-radius: 50%;
+    margin-bottom: 12px;
+}
 
-            animation:
-                rotate 18s linear infinite;
-        }
+.certificate h3 {
+    font-size: 16px;
 
-        .orbit::before {
+    margin-bottom: 6px;
+}
 
-            content: "";
+.certificate p {
+    color: var(--muted);
 
-            position: absolute;
+    font-size: 12px;
+}
 
-            width: 11px;
-            height: 11px;
 
-            top: 12%;
-            left: 5%;
+/* =========================================================
+   CONTACT
+========================================================= */
 
-            border-radius: 50%;
+.contact-box {
+    position: relative;
 
-            background: var(--accent);
+    padding: 50px;
 
-            box-shadow:
-                0 0 20px
-                var(--accent);
-        }
+    border: 1px solid var(--border);
+    border-radius: 25px;
 
-        .orbit.two {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,212,255,.07),
+            rgba(139,92,246,.06)
+        );
 
-            inset: 35px;
+    overflow: hidden;
+}
 
-            border-color:
-                rgba(124,58,237,.2);
+.contact-box h2 {
+    max-width: 650px;
 
-            animation-duration: 13s;
+    font-size: clamp(30px, 5vw, 50px);
 
-            animation-direction: reverse;
-        }
+    line-height: 1.08;
 
-        .orbit.three {
+    letter-spacing: -1.5px;
 
-            inset: 70px;
+    margin-bottom: 15px;
+}
 
-            border-color:
-                rgba(255,255,255,.06);
+.contact-box p {
+    max-width: 650px;
 
-            animation-duration: 25s;
-        }
+    color: var(--muted);
 
-        @keyframes rotate {
+    font-size: 14px;
 
-            from {
-                transform: rotate(0);
-            }
+    margin-bottom: 25px;
+}
 
-            to {
-                transform: rotate(360deg);
-            }
-        }
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-        .profile-card {
 
-            position: relative;
+/* =========================================================
+   FOOTER
+========================================================= */
 
-            width: 275px;
+footer {
+    padding: 35px 0;
 
-            padding: 28px 25px;
+    border-top: 1px solid var(--border);
 
-            border:
-                1px solid var(--border);
+    color: var(--muted);
 
-            border-radius: 25px;
+    font-size: 12px;
+}
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.08),
-                    rgba(255,255,255,.025)
-                );
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-            backdrop-filter:
-                blur(20px);
+    gap: 20px;
+}
 
-            box-shadow:
-                var(--shadow);
+.footer-brand {
+    color: var(--text);
+    font-weight: 800;
+}
 
-            text-align: center;
 
-            z-index: 2;
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
-            transition:
-                transform .5s ease;
-        }
+.reveal {
+    opacity: 0;
 
-        .profile-card:hover {
-            transform:
-                translateY(-8px)
-                rotateX(2deg);
-        }
+    transform: translateY(18px);
 
-        .profile-photo {
+    transition:
+        opacity .55s ease,
+        transform .55s ease;
+}
 
-            width: 155px;
-            height: 185px;
+.reveal.visible {
+    opacity: 1;
 
-            margin:
-                0 auto 20px;
+    transform: translateY(0);
+}
 
-            overflow: hidden;
 
-            border-radius: 18px;
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
 
-            border:
-                1px solid
-                rgba(255,255,255,.14);
+@media (max-width: 950px) {
 
-            box-shadow:
-                0 20px 50px
-                rgba(0,0,0,.35),
-                0 0 35px
-                rgba(0,217,255,.07);
-        }
+    .hero-content {
+        grid-template-columns: 1fr;
 
-        .profile-photo img {
+        text-align: center;
+    }
 
-            width: 100%;
-            height: 100%;
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-            display: block;
+    .hero-buttons {
+        justify-content: center;
+    }
 
-            object-fit: cover;
+    .hero-visual {
+        order: -1;
+    }
 
-            object-position:
-                center top;
+    .profile-orbit {
+        width: 320px;
+    }
 
-            filter:
-                grayscale(100%);
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
 
-            transition:
-                filter .5s ease,
-                transform .5s ease;
-        }
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-        .profile-card:hover
-        .profile-photo img {
+    .certificates {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-            filter:
-                grayscale(75%);
 
-            transform:
-                scale(1.03);
-        }
+/* =========================================================
+   MOBILE
+========================================================= */
 
-        .profile-card h3 {
+@media (max-width: 700px) {
 
-            font-size: 20px;
+    :root {
+        --nav: 64px;
+    }
 
-            margin-bottom: 3px;
-        }
+    html {
+        scroll-padding-top: 75px;
+    }
 
-        .profile-card p {
+    .container {
+        width: min(100% - 28px, var(--max));
+    }
 
-            color: var(--muted);
+    section {
+        padding: 80px 0;
+    }
 
-            font-size: 12px;
-        }
+    .navbar {
+        height: 64px;
 
-        .profile-tags {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
 
-            display: flex;
+    .nav-container {
+        width: calc(100% - 28px);
+    }
 
-            justify-content: center;
+    .nav-links {
+        position: absolute;
 
-            flex-wrap: wrap;
+        top: 64px;
+        left: 14px;
+        right: 14px;
 
-            gap: 6px;
+        display: none;
 
-            margin-top: 17px;
-        }
+        flex-direction: column;
+        align-items: stretch;
 
-        .profile-tag {
+        gap: 0;
 
-            padding:
-                5px 9px;
+        padding: 8px;
 
-            border:
-                1px solid var(--border);
+        border: 1px solid var(--border);
+        border-radius: 15px;
 
-            border-radius: 999px;
+        background: rgba(7,11,18,.97);
+    }
 
-            color: var(--text-soft);
+    .nav-links.open {
+        display: flex;
+    }
 
-            font-size: 10px;
+    .nav-links li {
+        width: 100%;
+    }
 
-            font-weight: 800;
-        }
+    .nav-links a {
+        display: block;
 
+        padding: 12px 13px;
 
-        /* =========================================================
-           SCROLL INDICATOR
-        ========================================================= */
+        border-radius: 9px;
+    }
 
-        .scroll-indicator {
+    .nav-links a:hover {
+        background: rgba(255,255,255,.04);
+    }
 
-            position: absolute;
+    .menu-toggle {
+        display: grid;
+        place-items: center;
+    }
 
-            bottom: 25px;
-            left: 50%;
+    .hero {
+        min-height: auto;
 
-            transform:
-                translateX(-50%);
+        padding-top: 105px;
+    }
 
-            color: var(--muted);
+    .hero-content {
+        gap: 40px;
+    }
 
-            font-size: 11px;
+    .hero h1 {
+        font-size: clamp(42px, 14vw, 65px);
 
-            display: flex;
+        letter-spacing: -3px;
+    }
 
-            flex-direction: column;
+    .hero-buttons {
+        flex-direction: column;
+    }
 
-            align-items: center;
+    .btn {
+        width: 100%;
+    }
 
-            gap: 7px;
-        }
+    .profile-orbit {
+        width: 270px;
+    }
 
-        .scroll-line {
+    .orbit {
+        animation: none;
+    }
 
-            width: 1px;
-            height: 35px;
+    .orbit.two {
+        animation: none;
+    }
 
-            background:
-                linear-gradient(
-                    var(--accent),
-                    transparent
-                );
-        }
+    .profile-card {
+        width: 210px;
+        min-height: 275px;
+    }
 
+    .profile-photo,
+    .profile-fallback {
+        width: 105px;
+        height: 105px;
+    }
 
-        /* =========================================================
-           STATS
-        ========================================================= */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-        .stats {
-            padding-top: 10px;
-        }
+    .stat:nth-child(2) {
+        border-right: none;
+    }
 
-        .stats-grid {
+    .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+    }
 
-            display: grid;
+    .skills-grid,
+    .projects-grid,
+    .certificates {
+        grid-template-columns: 1fr;
+    }
 
-            grid-template-columns:
-                repeat(4,1fr);
+    .project-card {
+        min-height: 280px;
+    }
 
-            border-top:
-                1px solid var(--border);
+    .contact-box {
+        padding: 30px 22px;
+    }
 
-            border-bottom:
-                1px solid var(--border);
-        }
+    .contact-buttons {
+        flex-direction: column;
+    }
 
-        .stat {
+    .footer-content {
+        flex-direction: column;
 
-            padding: 28px 20px;
+        text-align: center;
+    }
 
-            text-align: center;
+    .glow {
+        display: none;
+    }
 
-            border-right:
-                1px solid var(--border);
-        }
+    .grid {
+        opacity: .35;
+    }
+}
 
-        .stat:last-child {
-            border-right: none;
-        }
 
-        .stat-number {
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
 
-            display: block;
+@media (max-width: 380px) {
 
-            color: var(--accent);
+    .hero h1 {
+        font-size: 40px;
+    }
 
-            font-size: 31px;
+    .section-title {
+        font-size: 32px;
+    }
 
-            font-weight: 900;
+    .profile-orbit {
+        width: 240px;
+    }
 
-            line-height: 1.2;
-        }
+    .profile-card {
+        width: 195px;
+    }
+}
 
-        .stat-label {
 
-            color: var(--muted);
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-            font-size: 12px;
+@media (prefers-reduced-motion: reduce) {
 
-            font-weight: 600;
-        }
+    html {
+        scroll-behavior: auto;
+    }
 
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
 
-        /* =========================================================
-           ABOUT
-        ========================================================= */
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
 
-        .about-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                .75fr 1.25fr;
-
-            gap: 55px;
-
-            align-items: start;
-        }
-
-        .glass-card {
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius);
-
-            background:
-                var(--card);
-
-            backdrop-filter:
-                blur(15px);
-
-            box-shadow:
-                0 20px 60px
-                rgba(0,0,0,.12);
-        }
-
-        .about-card {
-
-            padding: 30px;
-        }
-
-        .about-card p {
-
-            color: var(--muted);
-
-            margin-bottom: 17px;
-        }
-
-        .about-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .quote {
-
-            margin-top: 25px;
-
-            padding:
-                18px 20px;
-
-            border-left:
-                3px solid
-                var(--accent);
-
-            background:
-                rgba(0,217,255,.045);
-
-            border-radius:
-                0 12px 12px 0;
-
-            color: var(--text-soft);
-
-            font-size: 14px;
-
-            font-style: italic;
-        }
-
-        .info-list {
-
-            list-style: none;
-
-            display: grid;
-
-            gap: 13px;
-
-            padding: 28px;
-        }
-
-        .info-item {
-
-            display: flex;
-
-            justify-content:
-                space-between;
-
-            gap: 20px;
-
-            padding-bottom: 13px;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-        .info-item:last-child {
-
-            border-bottom: none;
-
-            padding-bottom: 0;
-        }
-
-        .info-label {
-            color: var(--muted);
-        }
-
-        .info-value {
-
-            text-align: right;
-
-            font-weight: 800;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           SKILLS
-        ========================================================= */
-
-        .skills-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 18px;
-        }
-
-        .skill-card {
-
-            padding: 25px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                18px;
-
-            background:
-                var(--card);
-
-            transition:
-                transform var(--transition),
-                border-color var(--transition),
-                box-shadow var(--transition);
-        }
-
-        .skill-card:hover {
-
-            transform:
-                translateY(-7px);
-
-            border-color:
-                rgba(0,217,255,.3);
-
-            box-shadow:
-                0 20px 50px
-                rgba(0,0,0,.16);
-        }
-
-        .skill-icon {
-
-            width: 48px;
-            height: 48px;
-
-            display: grid;
-
-            place-items: center;
-
-            margin-bottom: 16px;
-
-            border-radius: 13px;
-
-            background:
-                rgba(0,217,255,.08);
-
-            color: var(--accent);
-
-            font-size: 21px;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 7px;
-        }
-
-        .skill-card p {
-
-            color: var(--muted);
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           PROJECTS
-        ========================================================= */
-
-        .projects-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2,1fr);
-
-            gap: 20px;
-        }
-
-        .project-card {
-
-            position: relative;
-
-            min-height: 330px;
-
-            padding: 30px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            overflow: hidden;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.055),
-                    rgba(255,255,255,.012)
-                );
-
-            transition:
-                transform var(--transition),
-                border-color var(--transition),
-                box-shadow var(--transition);
-        }
-
-        .project-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            right: -70px;
-            top: -70px;
-
-            border-radius: 50%;
-
-            background:
-                var(--accent);
-
-            filter: blur(80px);
-
-            opacity: .08;
-
-            transition:
-                opacity var(--transition);
-        }
-
-        .project-card:hover {
-
-            transform:
-                translateY(-8px);
-
-            border-color:
-                rgba(0,217,255,.3);
-
-            box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.2);
-        }
-
-        .project-card:hover::before {
-            opacity: .18;
-        }
-
-        .project-number {
-
-            color:
-                rgba(255,255,255,.10);
-
-            font-size: 55px;
-
-            font-weight: 900;
-
-            line-height: 1;
-
-            margin-bottom: 18px;
-        }
-
-        .project-card h3 {
-
-            font-size: 23px;
-
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-
-            color: var(--muted);
-
-            font-size: 14px;
-
-            margin-bottom: 20px;
-        }
-
-        .project-status {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            width: fit-content;
-
-            margin-bottom: 16px;
-
-            padding:
-                5px 9px;
-
-            border:
-                1px solid
-                rgba(57,229,140,.18);
-
-            border-radius: 999px;
-
-            color: var(--success);
-
-            background:
-                rgba(57,229,140,.05);
-
-            font-size: 10px;
-
-            font-weight: 900;
-        }
-
-        .project-status span {
-
-            width: 6px;
-            height: 6px;
-
-            border-radius: 50%;
-
-            background:
-                var(--success);
-        }
-
-        .tags {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 7px;
-
-            margin-top: auto;
-        }
-
-        .tag {
-
-            padding:
-                5px 9px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                999px;
-
-            color:
-                var(--text-soft);
-
-            font-size: 10px;
-
-            font-weight: 800;
-        }
-
-
-        /* =========================================================
-           TIMELINE
-        ========================================================= */
-
-        .timeline {
-
-            position: relative;
-
-            max-width: 900px;
-
-            margin: auto;
-        }
-
-        .timeline::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 8px;
-
-            top: 0;
-            bottom: 0;
-
-            width: 1px;
-
-            background:
-                linear-gradient(
-                    var(--accent),
-                    var(--border),
-                    transparent
-                );
-        }
-
-        .timeline-item {
-
-            position: relative;
-
-            padding-left: 45px;
-
-            padding-bottom: 45px;
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-dot {
-
-            position: absolute;
-
-            left: 2px;
-            top: 7px;
-
-            width: 13px;
-            height: 13px;
-
-            border-radius: 50%;
-
-            background:
-                var(--accent);
-
-            box-shadow:
-                0 0 0 5px
-                rgba(0,217,255,.08),
-                0 0 20px
-                rgba(0,217,255,.45);
-        }
-
-        .timeline-date {
-
-            color:
-                var(--accent);
-
-            font-size: 11px;
-
-            font-weight: 900;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing: 1px;
-        }
-
-        .timeline-item h3 {
-
-            margin:
-                5px 0 3px;
-
-            font-size: 20px;
-        }
-
-        .timeline-company {
-
-            color:
-                var(--text-soft);
-
-            font-size: 13px;
-
-            font-weight: 700;
-
-            margin-bottom: 8px;
-        }
-
-        .timeline-item p {
-
-            color:
-                var(--muted);
-
-            font-size: 13px;
-        }
-
-
-        /* =========================================================
-           EDUCATION
-        ========================================================= */
-
-        .education-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 18px;
-        }
-
-        .education-card {
-
-            padding: 27px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                19px;
-
-            background:
-                var(--card);
-
-            transition:
-                transform var(--transition);
-        }
-
-        .education-card:hover {
-            transform:
-                translateY(-6px);
-        }
-
-        .education-year {
-
-            color:
-                var(--accent);
-
-            font-size: 11px;
-
-            font-weight: 900;
-
-            letter-spacing: 1px;
-        }
-
-        .education-card h3 {
-
-            margin:
-                8px 0 5px;
-
-            font-size: 18px;
-        }
-
-        .education-card p {
-
-            color:
-                var(--muted);
-
-            font-size: 13px;
-        }
-
-        .education-score {
-
-            display: inline-block;
-
-            margin-top: 14px;
-
-            padding:
-                5px 9px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 999px;
-
-            color:
-                var(--text-soft);
-
-            font-size: 10px;
-
-            font-weight: 800;
-        }
-
-
-        /* =========================================================
-           CERTIFICATES
-        ========================================================= */
-
-        .certificates {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 18px;
-        }
-
-        .certificate {
-
-            padding: 25px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                18px;
-
-            background:
-                var(--card);
-
-            transition:
-                transform var(--transition),
-                border-color var(--transition);
-        }
-
-        .certificate:hover {
-
-            transform:
-                translateY(-6px);
-
-            border-color:
-                rgba(0,217,255,.25);
-        }
-
-        .certificate-icon {
-
-            width: 44px;
-            height: 44px;
-
-            display: grid;
-
-            place-items: center;
-
-            margin-bottom: 15px;
-
-            border-radius: 12px;
-
-            background:
-                rgba(124,58,237,.09);
-
-            color:
-                #a78bfa;
-
-            font-size: 20px;
-        }
-
-        .certificate h3 {
-
-            font-size: 16px;
-
-            margin-bottom: 6px;
-        }
-
-        .certificate p {
-
-            color:
-                var(--muted);
-
-            font-size: 12px;
-        }
-
-
-        /* =========================================================
-           SKILL TAG CLOUD
-        ========================================================= */
-
-        .skill-cloud {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 9px;
-
-            margin-top: 30px;
-        }
-
-        .cloud-item {
-
-            padding:
-                8px 12px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                999px;
-
-            background:
-                rgba(255,255,255,.025);
-
-            color:
-                var(--text-soft);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            transition:
-                transform var(--transition),
-                border-color var(--transition),
-                color var(--transition);
-        }
-
-        .cloud-item:hover {
-
-            transform:
-                translateY(-3px);
-
-            border-color:
-                rgba(0,217,255,.3);
-
-            color:
-                var(--accent);
-        }
-
-
-        /* =========================================================
-           CONTACT
-        ========================================================= */
-
-        .contact-box {
-
-            position: relative;
-
-            overflow: hidden;
-
-            padding:
-                55px 45px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                28px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(0,217,255,.07),
-                    rgba(124,58,237,.07)
-                );
-
-            text-align: center;
-        }
-
-        .contact-box::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 300px;
-            height: 300px;
-
-            left: 50%;
-            top: -220px;
-
-            transform:
-                translateX(-50%);
-
-            border-radius: 50%;
-
-            background:
-                var(--accent);
-
-            filter:
-                blur(120px);
-
-            opacity: .08;
-        }
-
-        .contact-box h2 {
-
-            position: relative;
-
-            font-size:
-                clamp(
-                    32px,
-                    5vw,
-                    50px
-                );
-
-            line-height: 1.1;
-
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-
-            position: relative;
-
-            max-width: 650px;
-
-            margin:
-                0 auto 28px;
-
-            color:
-                var(--muted);
-        }
-
-        .contact-buttons {
-
-            position: relative;
-
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 12px;
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-
-            padding:
-                35px 0;
-
-            border-top:
-                1px solid var(--border);
-        }
-
-        .footer-inner {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content:
-                space-between;
-
-            gap: 20px;
-        }
-
-        .footer-text {
-
-            color:
-                var(--muted);
-
-            font-size: 12px;
-        }
-
-        .footer-brand {
-
-            color:
-                var(--text);
-
-            font-weight: 900;
-
-            font-size: 13px;
-        }
-
-        .footer-brand span {
-            color:
-                var(--accent);
-        }
-
-
-        /* =========================================================
-           REVEAL ANIMATION
-        ========================================================= */
-
-        .reveal {
-
-            opacity: 0;
-
-            transform:
-                translateY(30px);
-
-            transition:
-                opacity .8s ease,
-                transform .8s ease;
-        }
-
-        .reveal.visible {
-
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-
-        /* =========================================================
-           BACK TO TOP
-        ========================================================= */
-
-        .back-top {
-
-            position: fixed;
-
-            right: 20px;
-            bottom: 20px;
-
-            width: 43px;
-            height: 43px;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 12px;
-
-            background:
-                rgba(10,18,30,.75);
-
-            backdrop-filter:
-                blur(12px);
-
-            color:
-                var(--text);
-
-            cursor: pointer;
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transform:
-                translateY(15px);
-
-            transition:
-                all .3s ease;
-
-            z-index: 500;
-        }
-
-        .back-top.show {
-
-            opacity: 1;
-
-            visibility: visible;
-
-            transform:
-                translateY(0);
-        }
-
-        body.light .back-top {
-            background:
-                rgba(255,255,255,.8);
-        }
-
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media (max-width: 1000px) {
-
-            .hero-grid {
-
-                grid-template-columns:
-                    1fr;
-
-                text-align: center;
-            }
-
-            .hero-subtitle {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-visual {
-                margin-top: 20px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-            .education-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-            .certificates {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-        }
-
-
-        @media (max-width: 800px) {
-
-            .nav-links {
-
-                position: fixed;
-
-                top: var(--nav-height);
-
-                left: 20px;
-                right: 20px;
-
-                padding: 20px;
-
-                flex-direction: column;
-
-                align-items: stretch;
-
-                gap: 5px;
-
-                border:
-                    1px solid var(--border);
-
-                border-radius: 18px;
-
-                background:
-                    rgba(7,12,22,.94);
-
-                backdrop-filter:
-                    blur(20px);
-
-                opacity: 0;
-
-                visibility: hidden;
-
-                transform:
-                    translateY(-15px);
-
-                transition:
-                    all .3s ease;
-            }
-
-            body.light .nav-links {
-                background:
-                    rgba(255,255,255,.95);
-            }
-
-            .nav-links.open {
-
-                opacity: 1;
-
-                visibility: visible;
-
-                transform:
-                    translateY(0);
-            }
-
-            .nav-links li a {
-
-                display: block;
-
-                padding: 12px;
-
-                border-radius: 10px;
-            }
-
-            .nav-links li a:hover {
-                background:
-                    rgba(0,217,255,.06);
-            }
-
-            .nav-links a::after {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: grid;
-                place-items: center;
-            }
-
-            .nav-right {
-                gap: 8px;
-            }
-
-            .stats-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-
-            .stat:nth-child(2) {
-                border-right: none;
-            }
-
-            .stat:nth-child(-n+2) {
-                border-bottom:
-                    1px solid var(--border);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            section {
-                padding: 80px 0;
-            }
-
-            .container {
-                width:
-                    min(
-                        var(--max),
-                        calc(100% - 28px)
-                    );
-            }
-
-            .hero {
-                padding-top:
-                    calc(
-                        var(--nav-height) + 45px
-                    );
-            }
-
-            .hero h1 {
-                letter-spacing: -2.5px;
-            }
-
-            .profile-orbit {
-                width: 340px;
-            }
-
-            .profile-card {
-                width: 250px;
-            }
-
-            .profile-photo {
-                width: 135px;
-                height: 165px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .certificates {
-                grid-template-columns: 1fr;
-            }
-
-            .info-item {
-
-                flex-direction: column;
-
-                gap: 3px;
-            }
-
-            .info-value {
-                text-align: left;
-            }
-
-            .contact-box {
-                padding:
-                    40px 22px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .scroll-indicator {
-                display: none;
-            }
-        }
-
-
-        @media (max-width: 400px) {
-
-            .hero-buttons .btn {
-                width: 100%;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat {
-                border-right: none;
-                border-bottom:
-                    1px solid var(--border);
-            }
-
-            .stat:last-child {
-                border-bottom: none;
-            }
-
-            .profile-orbit {
-                width: 300px;
-            }
-
-            .orbit.two {
-                inset: 25px;
-            }
-
-            .orbit.three {
-                inset: 50px;
-            }
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                scroll-behavior: auto !important;
-
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .01ms !important;
-            }
-
-            .reveal {
-
-                opacity: 1;
-
-                transform: none;
-            }
-        }
-
-    </style>
+</style>
 </head>
 
 
 <body>
 
-    <!-- =========================================================
-         BACKGROUND
-    ========================================================= -->
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
 
-    <div class="background">
+<div class="background" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
 
-        <div class="grid"></div>
 
-        <div class="orb one"></div>
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
-        <div class="orb two"></div>
+<header class="navbar">
 
-        <div class="orb three"></div>
+    <div class="nav-container">
+
+        <a href="#home" class="brand">
+
+            <div class="brand-mark">
+                VA
+            </div>
+
+            <span>Vieri Al Falaq</span>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Buka menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <nav>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projects">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#education">
+                        Education
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
 
     </div>
 
+</header>
 
-    <!-- =========================================================
-         NAVBAR
-    ========================================================= -->
 
-    <header class="navbar">
 
-        <div class="nav-container">
+<main>
 
-            <a
-                href="#home"
-                class="brand"
-            >
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-                <div class="brand-mark">
-                    V
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+
+            <div class="hero-text reveal">
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    Open to opportunities & projects
+
                 </div>
 
-                <div class="brand-name">
-                    Vieri<span>.</span>
+
+                <h1>
+
+                    Muhammad
+                    <span class="gradient">
+                        Vieri Al Falaq
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-subtitle">
+
+                    Mahasiswa <strong>Pendidikan Fisika</strong>
+                    yang memiliki ketertarikan pada
+                    <strong>embedded systems, electronics,
+                    ECU technology</strong> dan pengembangan
+                    perangkat lunak.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <!-- DOWNLOAD CV -->
+
+                    <a
+                        href="cv-vieri.pdf"
+                        download="CV-Muhammad-Vieri-Al-Falaq.pdf"
+                        class="btn btn-primary">
+
+                        📄 Download CV
+
+                    </a>
+
+
+                    <!-- PROJECT -->
+
+                    <a
+                        href="#projects"
+                        class="btn btn-secondary">
+
+                        ⚡ Lihat Project
+
+                    </a>
+
+
+                    <!-- GITHUB -->
+
+                    <a
+                        href="https://github.com/Nyonyot02"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-secondary">
+
+                        GitHub
+
+                    </a>
+
                 </div>
 
-            </a>
+            </div>
 
 
-            <div class="nav-right">
 
-                <ul
-                    class="nav-links"
-                    id="navLinks"
-                >
+            <!-- PROFILE -->
 
-                    <li>
-                        <a
-                            href="#home"
-                            class="active"
+            <div class="hero-visual reveal">
+
+                <div class="profile-orbit">
+
+                    <div class="orbit"></div>
+
+                    <div class="orbit two"></div>
+
+
+                    <div class="profile-card">
+
+                        <img
+                            src="foto-vieri.jpg"
+                            alt="Muhammad Vieri Al Falaq"
+                            class="profile-photo"
+                            onerror="
+                                this.style.display='none';
+                                document.querySelector('.profile-fallback').style.display='grid';
+                            "
                         >
-                            Home
-                        </a>
+
+                        <div class="profile-fallback">
+                            VA
+                        </div>
+
+
+                        <h3>
+                            Vieri Al Falaq
+                        </h3>
+
+                        <p>
+                            Physics Education
+                        </p>
+
+                        <div class="profile-role">
+                            Embedded Systems
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid reveal">
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    2023
+                </span>
+
+                <span class="stat-label">
+                    University Start
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    ESP32
+                </span>
+
+                <span class="stat-label">
+                    Embedded Platform
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    ECU
+                </span>
+
+                <span class="stat-label">
+                    Automotive Technology
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    K-Line
+                </span>
+
+                <span class="stat-label">
+                    Communication
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-label">
+                About Me
+            </div>
+
+            <h2 class="section-title">
+                Mengenal Vieri
+            </h2>
+
+            <p class="section-description">
+
+                Profil singkat, latar belakang pendidikan,
+                dan bidang teknologi yang sedang dikembangkan.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-card reveal">
+
+                <p>
+
+                    Saya adalah mahasiswa Pendidikan Fisika
+                    yang memiliki minat pada teknologi,
+                    elektronika, embedded system dan
+                    automotive technology.
+
+                </p>
+
+                <p>
+
+                    Saya senang menggabungkan konsep fisika,
+                    elektronika, pemrograman dan sistem digital
+                    untuk membuat solusi yang dapat digunakan
+                    secara nyata.
+
+                </p>
+
+                <p>
+
+                    Salah satu fokus project yang sedang
+                    dikembangkan adalah perangkat diagnostic
+                    ECU berbasis ESP32 dan komunikasi K-Line.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="about-card reveal">
+
+                <ul class="info-list">
+
+                    <li class="info-item">
+
+                        <span class="info-label">
+                            Nama
+                        </span>
+
+                        <span class="info-value">
+                            Muhammad Vieri Al Falaq
+                        </span>
+
                     </li>
 
-                    <li>
-                        <a href="#about">
-                            About
-                        </a>
+
+                    <li class="info-item">
+
+                        <span class="info-label">
+                            Pendidikan
+                        </span>
+
+                        <span class="info-value">
+                            Pendidikan Fisika
+                        </span>
+
                     </li>
 
-                    <li>
-                        <a href="#experience">
-                            Experience
-                        </a>
+
+                    <li class="info-item">
+
+                        <span class="info-label">
+                            Universitas
+                        </span>
+
+                        <span class="info-value">
+                            Universitas Indraprasta PGRI
+                        </span>
+
                     </li>
 
-                    <li>
-                        <a href="#projects">
-                            Projects
-                        </a>
+
+                    <li class="info-item">
+
+                        <span class="info-label">
+                            Angkatan
+                        </span>
+
+                        <span class="info-value">
+                            2023
+                        </span>
+
                     </li>
 
-                    <li>
-                        <a href="#skills">
-                            Skills
-                        </a>
+
+                    <li class="info-item">
+
+                        <span class="info-label">
+                            Fokus
+                        </span>
+
+                        <span class="info-value">
+                            Embedded & ECU Technology
+                        </span>
+
                     </li>
 
-                    <li>
-                        <a href="#contact">
-                            Contact
-                        </a>
+
+                    <li class="info-item">
+
+                        <span class="info-label">
+                            Location
+                        </span>
+
+                        <span class="info-value">
+                            Jakarta, Indonesia
+                        </span>
+
                     </li>
 
                 </ul>
 
+            </div>
 
-                <button
-                    class="theme-toggle"
-                    id="themeToggle"
-                    aria-label="Ganti tema"
-                >
-                    ☾
-                </button>
+        </div>
+
+    </div>
+
+</section>
 
 
-                <button
-                    class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Buka menu"
-                    aria-expanded="false"
-                >
-                    ☰
-                </button>
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-label">
+                Skills
+            </div>
+
+            <h2 class="section-title">
+                Technical Skills
+            </h2>
+
+            <p class="section-description">
+
+                Teknologi dan bidang yang menjadi bagian
+                dari perjalanan belajar dan pengembangan project.
+
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    ESP32
+                </h3>
+
+                <p>
+                    Embedded development, serial communication,
+                    Wi-Fi, web interface dan hardware control.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🔌
+                </div>
+
+                <h3>
+                    Electronics
+                </h3>
+
+                <p>
+                    Microcontroller, digital electronics,
+                    interface circuit dan hardware prototyping.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🚗
+                </div>
+
+                <h3>
+                    ECU Technology
+                </h3>
+
+                <p>
+                    Automotive diagnostics, ECU communication,
+                    data acquisition dan K-Line technology.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>
+                    C/C++, Arduino ecosystem, Python,
+                    web technologies dan application development.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    HTML, CSS, JavaScript dan deployment
+                    menggunakan GitHub Pages.
+                </p>
+
+            </article>
+
+
+            <article class="skill-card reveal">
+
+                <div class="skill-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Android Development
+                </h3>
+
+                <p>
+                    Pengembangan aplikasi Android dengan
+                    Android Studio dan Kotlin.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-label">
+                Projects
+            </div>
+
+            <h2 class="section-title">
+                Selected Projects
+            </h2>
+
+            <p class="section-description">
+
+                Beberapa project teknologi yang sedang
+                dikembangkan dan dipelajari.
+
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 01 -->
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>
+                    Proletar ECU Tech
+                </h3>
+
+                <p>
+
+                    Project diagnostic ECU berbasis ESP32
+                    untuk membaca dan berkomunikasi dengan
+                    sistem ECU melalui interface K-Line.
+
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        ESP32
+                    </span>
+
+                    <span class="tag">
+                        K-Line
+                    </span>
+
+                    <span class="tag">
+                        ECU
+                    </span>
+
+                    <span class="tag">
+                        C++
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 02 -->
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>
+                    Honda Scantool
+                </h3>
+
+                <p>
+
+                    Perangkat scanner ECU Honda dengan
+                    ESP32, serial communication dan
+                    web-based diagnostic interface.
+
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        ESP32
+                    </span>
+
+                    <span class="tag">
+                        Honda PGM-FI
+                    </span>
+
+                    <span class="tag">
+                        Serial
+                    </span>
+
+                    <span class="tag">
+                        Web UI
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 03 -->
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>
+                    K-Line Interface
+                </h3>
+
+                <p>
+
+                    Pengembangan hardware interface untuk
+                    komunikasi antara microcontroller dengan
+                    ECU automotive melalui jalur K-Line.
+
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Electronics
+                    </span>
+
+                    <span class="tag">
+                        K-Line
+                    </span>
+
+                    <span class="tag">
+                        PC817
+                    </span>
+
+                    <span class="tag">
+                        UART
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 04 -->
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    04
+                </div>
+
+                <h3>
+                    ESP32 Web Diagnostic
+                </h3>
+
+                <p>
+
+                    Interface web lokal yang berjalan pada
+                    ESP32 untuk menampilkan parameter ECU
+                    dan data monitoring secara realtime.
+
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        HTML
+                    </span>
+
+                    <span class="tag">
+                        CSS
+                    </span>
+
+                    <span class="tag">
+                        JavaScript
+                    </span>
+
+                    <span class="tag">
+                        ESP32 AP
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 05 -->
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    05
+                </div>
+
+                <h3>
+                    Embedded Electronics
+                </h3>
+
+                <p>
+
+                    Eksperimen dan pengembangan berbagai
+                    rangkaian elektronik menggunakan
+                    microcontroller dan sensor.
+
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Arduino
+                    </span>
+
+                    <span class="tag">
+                        ESP32
+                    </span>
+
+                    <span class="tag">
+                        Sensors
+                    </span>
+
+                    <span class="tag">
+                        Hardware
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 06 -->
+
+            <article class="project-card reveal">
+
+                <div class="project-number">
+                    06
+                </div>
+
+                <h3>
+                    Attendance Application
+                </h3>
+
+                <p>
+
+                    Konsep aplikasi absensi dengan fitur
+                    pencatatan waktu, foto, lokasi dan
+                    pengelolaan data.
+
+                </p>
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Android
+                    </span>
+
+                    <span class="tag">
+                        Kotlin
+                    </span>
+
+                    <span class="tag">
+                        UI/UX
+                    </span>
+
+                    <span class="tag">
+                        Data
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================= -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-header reveal">
+
+            <div class="section-label">
+                Education
+            </div>
+
+            <h2 class="section-title">
+                Education & Experience
+            </h2>
+
+            <p class="section-description">
+
+                Perjalanan pendidikan dan pengalaman
+                organisasi/proyek.
+
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    2023 — Present
+                </div>
+
+                <h3>
+                    Universitas Indraprasta PGRI
+                </h3>
+
+                <p>
+                    Program Studi Pendidikan Fisika.
+                    Fokus pada pendidikan fisika,
+                    sistem digital, eksperimen dan
+                    pengembangan kompetensi mengajar.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    SMK
+                </div>
+
+                <h3>
+                    SMK Hangtuah 1
+                </h3>
+
+                <p>
+                    Latar belakang Multimedia dengan
+                    pengalaman pada teknologi digital
+                    dan pengembangan media.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    Experience
+                </div>
+
+                <h3>
+                    Organisasi & Kepanitiaan
+                </h3>
+
+                <p>
+                    Memiliki pengalaman dalam berbagai
+                    kegiatan organisasi dan kepanitiaan,
+                    termasuk koordinasi kegiatan dan
+                    tanggung jawab kepemimpinan.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    Technology Projects
+                </div>
+
+                <h3>
+                    Embedded & ECU Development
+                </h3>
+
+                <p>
+                    Mengembangkan project berbasis ESP32,
+                    electronics, K-Line communication,
+                    ECU diagnostic dan web interface.
+                </p>
 
             </div>
 
         </div>
 
-    </header>
+    </div>
+
+</section>
 
 
-    <main>
 
+<!-- =========================================================
+     CERTIFICATES
+========================================================= -->
 
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
+<section id="certificates">
 
-        <section
-            class="hero"
-            id="home"
-        >
+    <div class="container">
 
-            <div class="container">
+        <div class="section-header reveal">
 
-                <div class="hero-grid">
-
-
-                    <div
-                        class="hero-content reveal"
-                    >
-
-                        <div class="availability">
-
-                            <span
-                                class="availability-dot"
-                            ></span>
-
-                            Portfolio & Personal Profile
-
-                        </div>
-
-
-                        <h1>
-
-                            Muhammad
-                            <br>
-
-                            <span class="gradient">
-                                Vieri Al Falaq
-                            </span>
-
-                        </h1>
-
-
-                        <p class="hero-subtitle">
-
-                            Mahasiswa
-                            <strong>
-                                Pendidikan Fisika
-                            </strong>
-                            dengan minat pada
-                            <strong>
-                                teknologi, embedded systems,
-                                IoT, ECU technology,
-                                multimedia
-                            </strong>
-                            dan pengembangan solusi digital.
-
-                        </p>
-
-
-                        <div class="hero-buttons">
-
-                            <a
-                                href="#projects"
-                                class="btn btn-primary"
-                            >
-                                Lihat Project
-                                →
-                            </a>
-
-
-                            <a
-                                href="#contact"
-                                class="btn btn-secondary"
-                            >
-                                Hubungi Saya
-                            </a>
-
-
-                            <button
-                                onclick="window.print()"
-                                class="btn btn-secondary"
-                            >
-                                Cetak / Simpan CV
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- PROFILE -->
-
-                    <div
-                        class="hero-visual reveal"
-                    >
-
-                        <div class="profile-orbit">
-
-                            <div class="orbit"></div>
-
-                            <div class="orbit two"></div>
-
-                            <div class="orbit three"></div>
-
-
-                            <div class="profile-card">
-
-                                <div class="profile-photo">
-
-                                    <img
-                                        src="profile.jpg"
-                                        alt="Muhammad Vieri Al Falaq"
-                                    >
-
-                                </div>
-
-
-                                <h3>
-                                    Muhammad Vieri Al Falaq
-                                </h3>
-
-                                <p>
-                                    Physics Education • Technology
-                                </p>
-
-
-                                <div class="profile-tags">
-
-                                    <span class="profile-tag">
-                                        Physics
-                                    </span>
-
-                                    <span class="profile-tag">
-                                        IoT
-                                    </span>
-
-                                    <span class="profile-tag">
-                                        ECU
-                                    </span>
-
-                                    <span class="profile-tag">
-                                        Multimedia
-                                    </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="section-label">
+                Certificates
             </div>
 
+            <h2 class="section-title">
+                Certifications & Achievements
+            </h2>
 
-            <div class="scroll-indicator">
+        </div>
 
-                Scroll
 
-                <span class="scroll-line"></span>
+        <div class="certificates">
 
+
+            <article class="certificate reveal">
+
+                <div class="certificate-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    LSP Multimedia
+                </h3>
+
+                <p>
+                    Sertifikasi kompetensi multimedia
+                    BNSP tahun 2020.
+                </p>
+
+            </article>
+
+
+            <article class="certificate reveal">
+
+                <div class="certificate-icon">
+                    🔬
+                </div>
+
+                <h3>
+                    Physics Olympiad
+                </h3>
+
+                <p>
+                    Pengalaman mengikuti kompetisi
+                    Olimpiade Fisika.
+                </p>
+
+            </article>
+
+
+            <article class="certificate reveal">
+
+                <div class="certificate-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Leadership Experience
+                </h3>
+
+                <p>
+                    Pengalaman sebagai ketua kelas,
+                    kepanitiaan dan kegiatan masyarakat.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box reveal">
+
+            <div class="section-label">
+                Contact
             </div>
 
-        </section>
+            <h2>
+                Let's build something
+                interesting.
+            </h2>
 
+            <p>
 
-        <!-- =====================================================
-             STATS
-        ====================================================== -->
+                Terbuka untuk diskusi mengenai project
+                teknologi, embedded systems, electronics,
+                ECU diagnostics maupun kolaborasi lainnya.
 
-        <section class="stats">
+            </p>
 
-            <div class="container">
 
-                <div class="stats-grid reveal">
+            <div class="contact-buttons">
 
-                    <div class="stat">
 
-                        <span class="stat-number">
-                            3+
-                        </span>
+                <!-- EMAIL
+                     GANTI EMAIL DI BAWAH -->
 
-                        <span class="stat-label">
-                            Bidang Keahlian
-                        </span>
+                <a
+                    href="mailto:EMAILKAMU@gmail.com"
+                    class="btn btn-primary">
 
-                    </div>
+                    ✉ Email
 
+                </a>
 
-                    <div class="stat">
 
-                        <span class="stat-number">
-                            3
-                        </span>
+                <!-- WHATSAPP
+                     GANTI NOMOR DI BAWAH -->
 
-                        <span class="stat-label">
-                            Jenjang Pendidikan
-                        </span>
+                <a
+                    href="https://wa.me/62XXXXXXXXXX?text=Halo%20Vieri%2C%20saya%20melihat%20portfolio%20Anda."
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-secondary">
 
-                    </div>
+                    💬 WhatsApp
 
+                </a>
 
-                    <div class="stat">
 
-                        <span class="stat-number">
-                            4+
-                        </span>
+                <!-- GITHUB -->
 
-                        <span class="stat-label">
-                            Sertifikasi / Pelatihan
-                        </span>
+                <a
+                    href="https://github.com/Nyonyot02"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-secondary">
 
-                    </div>
+                    GitHub
 
+                </a>
 
-                    <div class="stat">
 
-                        <span class="stat-number">
-                            ∞
-                        </span>
+                <!-- CV -->
 
-                        <span class="stat-label">
-                            Semangat Eksperimen
-                        </span>
+                <a
+                    href="cv-vieri.pdf"
+                    download="CV-Muhammad-Vieri-Al-Falaq.pdf"
+                    class="btn btn-secondary">
 
-                    </div>
+                    📄 Download CV
 
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ABOUT
-        ====================================================== -->
-
-        <section id="about">
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-                    <div class="section-label">
-                        About Me
-                    </div>
-
-                    <h2 class="section-title">
-                        Belajar, membuat,
-                        <br>
-                        dan bereksperimen.
-                    </h2>
-
-                    <p class="section-description">
-
-                        Saya tertarik menghubungkan
-                        pendidikan, teknologi dan
-                        kreativitas menjadi sesuatu
-                        yang dapat digunakan di dunia nyata.
-
-                    </p>
-
-                </div>
-
-
-                <div class="about-grid">
-
-
-                    <div
-                        class="about-card glass-card reveal"
-                    >
-
-                        <p>
-
-                            Saya adalah Muhammad Vieri Al Falaq,
-                            mahasiswa Pendidikan Fisika di
-                            Universitas Indraprasta PGRI Jakarta.
-
-                        </p>
-
-                        <p>
-
-                            Saya memiliki ketertarikan terhadap
-                            teknologi, multimedia, IoT,
-                            pengembangan aplikasi, sistem embedded,
-                            dan teknologi otomotif.
-
-                        </p>
-
-                        <p>
-
-                            Saya juga memiliki pengalaman dalam
-                            operasional bisnis, administrasi,
-                            organisasi dan pekerjaan lapangan.
-
-                        </p>
-
-
-                        <div class="quote">
-
-                            "Manusia yang ingin mulai berpikir
-                            filsafat dengan bahasa sastra,
-                            transfer ilmu melalui psikologi
-                            dan diaplikasikan dengan seni."
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="glass-card reveal"
-                    >
-
-                        <ul class="info-list">
-
-                            <li class="info-item">
-
-                                <span class="info-label">
-                                    Nama
-                                </span>
-
-                                <span class="info-value">
-                                    Muhammad Vieri Al Falaq
-                                </span>
-
-                            </li>
-
-
-                            <li class="info-item">
-
-                                <span class="info-label">
-                                    Lokasi
-                                </span>
-
-                                <span class="info-value">
-                                    Jakarta Utara
-                                </span>
-
-                            </li>
-
-
-                            <li class="info-item">
-
-                                <span class="info-label">
-                                    Pendidikan
-                                </span>
-
-                                <span class="info-value">
-                                    S1 Pendidikan Fisika
-                                </span>
-
-                            </li>
-
-
-                            <li class="info-item">
-
-                                <span class="info-label">
-                                    Fokus
-                                </span>
-
-                                <span class="info-value">
-                                    Technology & Education
-                                </span>
-
-                            </li>
-
-
-                            <li class="info-item">
-
-                                <span class="info-label">
-                                    Email
-                                </span>
-
-                                <span class="info-value">
-                                    vierialfalaq@gmail.com
-                                </span>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             EXPERIENCE
-        ====================================================== -->
-
-        <section id="experience">
-
-            <div class="container">
-
-                <div class="section-header reveal">
-
-                    <div class="section-label">
-                        Experience
-                    </div>
-
-                    <h2 class="section-title">
-                        Pengalaman
-                        <br>
-                        profesional & organisasi.
-                    </h2>
-
-                    <p class="section-description">
-
-                        Beberapa pengalaman kerja,
-                        organisasi dan kegiatan yang
-                        membentuk kemampuan profesional.
-
-                    </p>
-
-                </div>
-
-
-                <div class="timeline">
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            November 2024
-                        </div>
-
-                        <h3>
-                            Usher
-                        </h3>
-
-                        <div class="timeline-company">
-                            Event Kualifikasi Piala Dunia
-                            Indonesia vs Arab Saudi
-                        </div>
-
-                        <p>
-                            Pekerja lepas dalam kegiatan
-                            event olahraga internasional.
-                        </p>
-
-                    </div>
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            Januari 2024
-                        </div>
-
-                        <h3>
-                            Ketua KPPS
-                        </h3>
-
-                        <div class="timeline-company">
-                            Komisi Penyelenggara
-                            Pemungutan Suara RT. 05
-                        </div>
-
-                        <p>
-                            Pengalaman kepemimpinan,
-                            koordinasi dan pelaksanaan
-                            kegiatan organisasi masyarakat.
-                        </p>
-
-                    </div>
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            Agustus 2023 — Sekarang
-                        </div>
-
-                        <h3>
-                            Anggota
-                        </h3>
-
-                        <div class="timeline-company">
-                            Gerakan Mahasiswa
-                            Nasional Indonesia
-                        </div>
-
-                        <p>
-                            Kegiatan organisasi dan
-                            pengembangan kemampuan
-                            kerja bersama.
-                        </p>
-
-                    </div>
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            September 2020 —
-                            November 2023
-                        </div>
-
-                        <h3>
-                            Owner
-                        </h3>
-
-                        <div class="timeline-company">
-                            Kedai Proletar
-                        </div>
-
-                        <p>
-                            Pengalaman mengelola usaha,
-                            operasional dan aktivitas
-                            bisnis.
-                        </p>
-
-                    </div>
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-date">
-                            September 2019 —
-                            Desember 2019
-                        </div>
-
-                        <h3>
-                            Admin
-                        </h3>
-
-                        <div class="timeline-company">
-                            PT Dinamika Expressindo
-                        </div>
-
-                        <p>
-                            Pengalaman administrasi
-                            dalam lingkungan kerja.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PROJECTS
-        ====================================================== -->
-
-        <section id="projects">
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-                    <div class="section-label">
-                        Projects
-                    </div>
-
-                    <h2 class="section-title">
-                        Things I
-                        <br>
-                        build & explore.
-                    </h2>
-
-                    <p class="section-description">
-
-                        Project yang menggabungkan
-                        hardware, software, embedded
-                        systems dan teknologi otomotif.
-
-                    </p>
-
-                </div>
-
-
-                <div class="projects-grid">
-
-
-                    <!-- ECU PROJECT -->
-
-                    <article
-                        class="project-card reveal"
-                    >
-
-                        <div class="project-number">
-                            01
-                        </div>
-
-                        <div class="project-status">
-
-                            <span></span>
-
-                            Active Project
-
-                        </div>
-
-                        <h3>
-                            Proletar ECU Tech
-                        </h3>
-
-                        <p>
-
-                            Pengembangan perangkat dan
-                            software untuk komunikasi,
-                            diagnosis dan eksplorasi
-                            ECU sepeda motor berbasis
-                            ESP32 dan K-Line.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                ESP32
-                            </span>
-
-                            <span class="tag">
-                                K-Line
-                            </span>
-
-                            <span class="tag">
-                                ECU
-                            </span>
-
-                            <span class="tag">
-                                Embedded
-                            </span>
-
-                            <span class="tag">
-                                Arduino
-                            </span>
-
-                            <span class="tag">
-                                C/C++
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- SCANTOOL -->
-
-                    <article
-                        class="project-card reveal"
-                    >
-
-                        <div class="project-number">
-                            02
-                        </div>
-
-                        <div class="project-status">
-
-                            <span></span>
-
-                            Development
-
-                        </div>
-
-                        <h3>
-                            Honda ECU Scantool
-                        </h3>
-
-                        <p>
-
-                            Eksperimen perangkat diagnostic
-                            untuk membaca data ECU Honda,
-                            komunikasi serial,
-                            sensor data dan tampilan
-                            monitoring melalui web interface.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                ESP32
-                            </span>
-
-                            <span class="tag">
-                                Honda PGM-FI
-                            </span>
-
-                            <span class="tag">
-                                Serial
-                            </span>
-
-                            <span class="tag">
-                                Web UI
-                            </span>
-
-                            <span class="tag">
-                                IoT
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- WEB -->
-
-                    <article
-                        class="project-card reveal"
-                    >
-
-                        <div class="project-number">
-                            03
-                        </div>
-
-                        <div class="project-status">
-
-                            <span></span>
-
-                            Portfolio
-
-                        </div>
-
-                        <h3>
-                            Personal Portfolio
-                        </h3>
-
-                        <p>
-
-                            Website portfolio pribadi
-                            berbasis HTML, CSS dan JavaScript
-                            yang dirancang agar ringan,
-                            responsive dan dapat di-host
-                            gratis menggunakan GitHub Pages.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                HTML
-                            </span>
-
-                            <span class="tag">
-                                CSS
-                            </span>
-
-                            <span class="tag">
-                                JavaScript
-                            </span>
-
-                            <span class="tag">
-                                GitHub Pages
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- IOT -->
-
-                    <article
-                        class="project-card reveal"
-                    >
-
-                        <div class="project-number">
-                            04
-                        </div>
-
-                        <div class="project-status">
-
-                            <span></span>
-
-                            Exploration
-
-                        </div>
-
-                        <h3>
-                            IoT & Embedded Systems
-                        </h3>
-
-                        <p>
-
-                            Eksplorasi mikrokontroler,
-                            sensor, komunikasi serial,
-                            jaringan Wi-Fi dan integrasi
-                            hardware dengan software.
-
-                        </p>
-
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                ESP32
-                            </span>
-
-                            <span class="tag">
-                                ESP8266
-                            </span>
-
-                            <span class="tag">
-                                Sensors
-                            </span>
-
-                            <span class="tag">
-                                Wi-Fi
-                            </span>
-
-                            <span class="tag">
-                                Electronics
-                            </span>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             EDUCATION
-        ====================================================== -->
-
-        <section id="education">
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-                    <div class="section-label">
-                        Education
-                    </div>
-
-                    <h2 class="section-title">
-                        Pendidikan
-                    </h2>
-
-                </div>
-
-
-                <div class="education-grid">
-
-
-                    <article
-                        class="education-card reveal"
-                    >
-
-                        <div class="education-year">
-                            UNIVERSITAS
-                        </div>
-
-                        <h3>
-                            Universitas
-                            Indraprasta PGRI Jakarta
-                        </h3>
-
-                        <p>
-                            S1 — Pendidikan Fisika
-                        </p>
-
-                        <span class="education-score">
-                            IPK 1.7
-                        </span>
-
-                    </article>
-
-
-                    <article
-                        class="education-card reveal"
-                    >
-
-                        <div class="education-year">
-                            UNIVERSITAS
-                        </div>
-
-                        <h3>
-                            Universitas YARSI
-                        </h3>
-
-                        <p>
-                            S1 — Ilmu Perpustakaan
-                            dan Sains Informasi
-                        </p>
-
-                        <span class="education-score">
-                            IPK 2.7
-                        </span>
-
-                    </article>
-
-
-                    <article
-                        class="education-card reveal"
-                    >
-
-                        <div class="education-year">
-                            SMK — 2020
-                        </div>
-
-                        <h3>
-                            SMKS HANG TUAH I
-                            JAKARTA
-                        </h3>
-
-                        <p>
-                            Teknik Multimedia
-                        </p>
-
-                        <span class="education-score">
-                            Nilai rata-rata 7
-                        </span>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SKILLS
-        ====================================================== -->
-
-        <section id="skills">
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-                    <div class="section-label">
-                        Skills
-                    </div>
-
-                    <h2 class="section-title">
-                        Skills &
-                        <br>
-                        capabilities.
-                    </h2>
-
-                    <p class="section-description">
-
-                        Kombinasi kemampuan teknis,
-                        kreatif, analitis dan interpersonal.
-
-                    </p>
-
-                </div>
-
-
-                <div class="skills-grid">
-
-
-                    <article
-                        class="skill-card reveal"
-                    >
-
-                        <div class="skill-icon">
-                            &lt;/&gt;
-                        </div>
-
-                        <h3>
-                            Web & Software
-                        </h3>
-
-                        <p>
-                            WordPress, Joomla,
-                            desain web, UI,
-                            pengembangan aplikasi
-                            dan Git.
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="skill-card reveal"
-                    >
-
-                        <div class="skill-icon">
-                            ⚡
-                        </div>
-
-                        <h3>
-                            Embedded & IoT
-                        </h3>
-
-                        <p>
-                            ESP32, ESP8266,
-                            IoT, prototyping,
-                            komunikasi serial
-                            dan electronics.
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="skill-card reveal"
-                    >
-
-                        <div class="skill-icon">
-                            ◈
-                        </div>
-
-                        <h3>
-                            Electronics
-                        </h3>
-
-                        <p>
-                            Desain prototype,
-                            perangkat desain sirkuit
-                            seperti OrCAD dan Eagle.
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="skill-card reveal"
-                    >
-
-                        <div class="skill-icon">
-                            🎨
-                        </div>
-
-                        <h3>
-                            Multimedia
-                        </h3>
-
-                        <p>
-                            Desain grafis,
-                            multimedia dan
-                            pengembangan konten
-                            digital.
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="skill-card reveal"
-                    >
-
-                        <div class="skill-icon">
-                            🧠
-                        </div>
-
-                        <h3>
-                            Analytical Thinking
-                        </h3>
-
-                        <p>
-                            Problem-solving,
-                            analitis, berpikir kritis
-                            dan strategic thinking.
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="skill-card reveal"
-                    >
-
-                        <div class="skill-icon">
-                            🤝
-                        </div>
-
-                        <h3>
-                            Collaboration
-                        </h3>
-
-                        <p>
-                            Adaptabilitas,
-                            active listening,
-                            kreativitas dan
-                            pembelajaran aktif.
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div
-                    class="skill-cloud reveal"
-                >
-
-                    <span class="cloud-item">
-                        Affiliate Marketing
-                    </span>
-
-                    <span class="cloud-item">
-                        Content Management
-                    </span>
-
-                    <span class="cloud-item">
-                        WordPress
-                    </span>
-
-                    <span class="cloud-item">
-                        Joomla
-                    </span>
-
-                    <span class="cloud-item">
-                        Git
-                    </span>
-
-                    <span class="cloud-item">
-                        IoT
-                    </span>
-
-                    <span class="cloud-item">
-                        Mobile Development
-                    </span>
-
-                    <span class="cloud-item">
-                        UI Design
-                    </span>
-
-                    <span class="cloud-item">
-                        Web Design
-                    </span>
-
-                    <span class="cloud-item">
-                        Graphic Design
-                    </span>
-
-                    <span class="cloud-item">
-                        OrCAD
-                    </span>
-
-                    <span class="cloud-item">
-                        Eagle
-                    </span>
-
-                    <span class="cloud-item">
-                        User Research
-                    </span>
-
-                    <span class="cloud-item">
-                        Survey
-                    </span>
-
-                    <span class="cloud-item">
-                        Problem Solving
-                    </span>
-
-                    <span class="cloud-item">
-                        Critical Thinking
-                    </span>
-
-                    <span class="cloud-item">
-                        Strategic Thinking
-                    </span>
-
-                    <span class="cloud-item">
-                        Creativity
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CERTIFICATES
-        ====================================================== -->
-
-        <section id="certificates">
-
-            <div class="container">
-
-
-                <div class="section-header reveal">
-
-                    <div class="section-label">
-                        Certification
-                    </div>
-
-                    <h2 class="section-title">
-                        Lisensi &
-                        <br>
-                        sertifikasi.
-                    </h2>
-
-                </div>
-
-
-                <div class="certificates">
-
-
-                    <article
-                        class="certificate reveal"
-                    >
-
-                        <div class="certificate-icon">
-                            ✓
-                        </div>
-
-                        <h3>
-                            Asesmen Guru
-                            Blended Learning
-                        </h3>
-
-                        <p>
-                            Karier.mu by Sekolah.mu
-                            • Agustus 2024
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="certificate reveal"
-                    >
-
-                        <div class="certificate-icon">
-                            ⚙
-                        </div>
-
-                        <h3>
-                            Teknik Kelistrikan
-                            Sepeda Motor
-                        </h3>
-
-                        <p>
-                            Karier.mu x LPK Kartika
-                            • Juni 2024
-                        </p>
-
-                    </article>
-
-
-                    <article
-                        class="certificate reveal"
-                    >
-
-                        <div class="certificate-icon">
-                            ★
-                        </div>
-
-                        <h3>
-                            Jasa Multimedia
-                        </h3>
-
-                        <p>
-                            Badan Nasional
-                            Sertifikasi Profesi
-                            • Agustus 2020
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PHILOSOPHY
-        ====================================================== -->
-
-        <section>
-
-            <div class="container">
-
-                <div
-                    class="contact-box reveal"
-                >
-
-                    <h2>
-                        Curious enough
-                        to build something?
-                    </h2>
-
-                    <p>
-
-                        Saya terbuka untuk belajar,
-                        berkolaborasi, berdiskusi
-                        dan mengembangkan project
-                        yang menggabungkan teknologi
-                        dengan kebutuhan nyata.
-
-                    </p>
-
-
-                    <div class="contact-buttons">
-
-                        <a
-                            href="mailto:vierialfalaq@gmail.com"
-                            class="btn btn-primary"
-                        >
-                            ✉ Email Saya
-                        </a>
-
-
-                        <a
-                            href="https://wa.me/6289654998183"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-secondary"
-                        >
-                            WhatsApp
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CONTACT
-        ====================================================== -->
-
-        <section
-            id="contact"
-            style="padding-top:0;"
-        >
-
-            <div class="container">
-
-                <div
-                    class="glass-card reveal"
-                    style="padding:30px;"
-                >
-
-                    <div class="section-label">
-                        Contact
-                    </div>
-
-                    <div
-                        style="
-                        display:grid;
-                        grid-template-columns:
-                        repeat(auto-fit,minmax(220px,1fr));
-                        gap:20px;
-                        "
-                    >
-
-                        <div>
-
-                            <small
-                                style="color:var(--muted);"
-                            >
-                                EMAIL
-                            </small>
-
-                            <p
-                                style="
-                                font-weight:800;
-                                margin-top:5px;
-                                "
-                            >
-                                vierialfalaq@gmail.com
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <small
-                                style="color:var(--muted);"
-                            >
-                                PHONE
-                            </small>
-
-                            <p
-                                style="
-                                font-weight:800;
-                                margin-top:5px;
-                                "
-                            >
-                                +62 896-5499-8183
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <small
-                                style="color:var(--muted);"
-                            >
-                                LOCATION
-                            </small>
-
-                            <p
-                                style="
-                                font-weight:800;
-                                margin-top:5px;
-                                "
-                            >
-                                Jakarta Utara
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <small
-                                style="color:var(--muted);"
-                            >
-                                PORTFOLIO
-                            </small>
-
-                            <p
-                                style="
-                                font-weight:800;
-                                margin-top:5px;
-                                "
-                            >
-                                GitHub Pages
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
-
-    <footer>
-
-        <div class="container">
-
-            <div class="footer-inner">
-
-                <div class="footer-brand">
-                    Vieri<span>.</span>
-                </div>
-
-                <div class="footer-text">
-
-                    ©
-                    <span id="year"></span>
-                    Muhammad Vieri Al Falaq.
-                    Built with HTML, CSS & JavaScript.
-
-                </div>
+                </a>
 
             </div>
 
         </div>
 
-    </footer>
+    </div>
+
+</section>
+
+</main>
 
 
-    <!-- =========================================================
-         BACK TO TOP
-    ========================================================= -->
 
-    <button
-        class="back-top"
-        id="backTop"
-        aria-label="Kembali ke atas"
-    >
-        ↑
-    </button>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
+<footer>
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
+    <div class="container">
 
-    <script>
+        <div class="footer-content">
 
-        /* =====================================================
-           YEAR
-        ===================================================== */
+            <div>
+                © <span id="year"></span>
+                <span class="footer-brand">
+                    Muhammad Vieri Al Falaq
+                </span>
+            </div>
 
-        document.getElementById("year")
-            .textContent =
-            new Date().getFullYear();
+            <div>
+                Built with HTML • CSS • JavaScript
+            </div>
 
+        </div>
 
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
+    </div>
 
-        const menuToggle =
-            document.getElementById("menuToggle");
-
-        const navLinks =
-            document.getElementById("navLinks");
-
-        menuToggle.addEventListener(
-            "click",
-            () => {
-
-                const open =
-                    navLinks.classList.toggle("open");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    open
-                );
-
-                document.body.classList.toggle(
-                    "menu-open",
-                    open
-                );
-
-                menuToggle.textContent =
-                    open ? "✕" : "☰";
-            }
-        );
+</footer>
 
 
-        /* Close menu */
 
-        document
-            .querySelectorAll(".nav-links a")
-            .forEach(link => {
+<script>
 
-                link.addEventListener(
-                    "click",
-                    () => {
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-                        navLinks.classList.remove(
-                            "open"
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+
+    const opened = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
+
+    menuToggle.textContent =
+        opened ? "✕" : "☰";
+
+});
+
+
+/* Close mobile menu after clicking */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.textContent = "☰";
+
+        });
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+   Ringan karena IntersectionObserver
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+if ("IntersectionObserver" in window) {
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                        observer.unobserve(
+                            entry.target
                         );
 
-                        document.body.classList.remove(
-                            "menu-open"
-                        );
-
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        menuToggle.textContent =
-                            "☰";
                     }
-                );
 
-            });
-
-
-        /* =====================================================
-           THEME
-        ===================================================== */
-
-        const themeToggle =
-            document.getElementById(
-                "themeToggle"
-            );
-
-        const savedTheme =
-            localStorage.getItem("vieri-theme");
-
-        if (savedTheme === "light") {
-
-            document.body.classList.add("light");
-
-            themeToggle.textContent = "☀";
-
-        }
-
-
-        themeToggle.addEventListener(
-            "click",
-            () => {
-
-                document.body.classList.toggle(
-                    "light"
-                );
-
-                const light =
-                    document.body.classList.contains(
-                        "light"
-                    );
-
-                localStorage.setItem(
-                    "vieri-theme",
-                    light
-                        ? "light"
-                        : "dark"
-                );
-
-                themeToggle.textContent =
-                    light
-                        ? "☀"
-                        : "☾";
-            }
-        );
-
-
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
-
-        const revealElements =
-            document.querySelectorAll(
-                ".reveal"
-            );
-
-
-        const revealObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target
-                                    .classList
-                                    .add("visible");
-
-                                revealObserver
-                                    .unobserve(
-                                        entry.target
-                                    );
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: .12
-                }
-            );
-
-
-        revealElements.forEach(
-            element => {
-
-                revealObserver.observe(
-                    element
-                );
-
-            }
-        );
-
-
-        /* =====================================================
-           ACTIVE NAV
-        ===================================================== */
-
-        const sections =
-            document.querySelectorAll(
-                "main section[id]"
-            );
-
-        const navItems =
-            document.querySelectorAll(
-                ".nav-links a"
-            );
-
-
-        const sectionObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                const id =
-                                    entry.target.id;
-
-                                navItems.forEach(
-                                    link => {
-
-                                        link.classList
-                                            .remove(
-                                                "active"
-                                            );
-
-                                        if (
-                                            link.getAttribute(
-                                                "href"
-                                            ) ===
-                                            "#" + id
-                                        ) {
-
-                                            link.classList
-                                                .add(
-                                                    "active"
-                                                );
-                                        }
-
-                                    }
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    rootMargin:
-                        "-35% 0px -55% 0px"
-                }
-            );
-
-
-        sections.forEach(
-            section => {
-
-                sectionObserver.observe(
-                    section
-                );
-
-            }
-        );
-
-
-        /* =====================================================
-           BACK TO TOP
-        ===================================================== */
-
-        const backTop =
-            document.getElementById(
-                "backTop"
-            );
-
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (
-                    window.scrollY > 500
-                ) {
-
-                    backTop.classList.add(
-                        "show"
-                    );
-
-                } else {
-
-                    backTop.classList.remove(
-                        "show"
-                    );
-
-                }
+                });
 
             },
             {
-                passive: true
+                threshold: 0.10,
+                rootMargin: "0px 0px -30px 0px"
             }
         );
 
 
-        backTop.addEventListener(
-            "click",
-            () => {
+    revealElements.forEach(element => {
 
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
+        observer.observe(element);
+
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
+}
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+const sections =
+    document.querySelectorAll("main section[id]");
+
+const links =
+    document.querySelectorAll(".nav-links a");
+
+
+if ("IntersectionObserver" in window) {
+
+    const navObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        links.forEach(link => {
+
+                            link.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                        const active =
+                            document.querySelector(
+                                `.nav-links a[href="#${entry.target.id}"]`
+                            );
+
+
+                        if (active) {
+
+                            active.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+
                 });
 
+            },
+            {
+                rootMargin:
+                    "-35% 0px -55% 0px"
             }
         );
 
 
-        /* =====================================================
-           SMALL PARALLAX EFFECT
-        ===================================================== */
+    sections.forEach(section => {
 
-        const heroVisual =
-            document.querySelector(
-                ".hero-visual"
-            );
+        navObserver.observe(section);
 
+    });
 
-        window.addEventListener(
-            "mousemove",
-            event => {
-
-                if (
-                    window.innerWidth < 900
-                ) return;
+}
 
 
-                const x =
-                    (
-                        event.clientX /
-                        window.innerWidth
-                    ) - .5;
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year")
+    .textContent = new Date().getFullYear();
 
 
-                const y =
-                    (
-                        event.clientY /
-                        window.innerHeight
-                    ) - .5;
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
 
+const profileImage =
+    document.querySelector(".profile-photo");
 
-                heroVisual.style.transform =
-                    `
-                    translate(
-                        ${x * 8}px,
-                        ${y * 8}px
-                    )
-                    `;
-            }
-        );
+if (profileImage) {
 
+    profileImage.addEventListener(
+        "error",
+        function () {
 
-        /* =====================================================
-           KEYBOARD ESCAPE
-        ===================================================== */
+            this.style.display = "none";
 
-        document.addEventListener(
-            "keydown",
-            event => {
+            const fallback =
+                document.querySelector(
+                    ".profile-fallback"
+                );
 
-                if (
-                    event.key === "Escape"
-                ) {
+            if (fallback) {
 
-                    navLinks.classList.remove(
-                        "open"
-                    );
-
-                    document.body.classList.remove(
-                        "menu-open"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuToggle.textContent =
-                        "☰";
-                }
+                fallback.style.display = "grid";
 
             }
-        );
 
-    </script>
+        }
+    );
+
+}
+
+
+/* =========================================================
+   PERFORMANCE
+   Disable heavy hover behavior on touch devices
+========================================================= */
+
+const isTouch =
+    window.matchMedia(
+        "(hover: none)"
+    ).matches;
+
+if (isTouch) {
+
+    document
+        .querySelectorAll(
+            ".skill-card, .project-card"
+        )
+        .forEach(card => {
+
+            card.style.transition =
+                "border-color .2s ease";
+
+        });
+
+}
+
+</script>
 
 </body>
 </html>
