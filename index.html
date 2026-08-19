@@ -1,1516 +1,1198 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#070b12">
-<meta name="description" content="Muhammad Vieri Al Falaq — Physics Education, Embedded Systems, ECU Technology and Engineering Projects.">
-<meta name="author" content="Muhammad Vieri Al Falaq">
+  <title>Muhammad Vieri Al Falaq | Engineering Portfolio</title>
 
-<meta property="og:title" content="Muhammad Vieri Al Falaq | Portfolio">
-<meta property="og:description" content="Physics Education • Embedded Systems • ECU Technology">
-<meta property="og:type" content="website">
+  <meta
+    name="description"
+    content="Muhammad Vieri Al Falaq — Electronics, Embedded Systems, PCB Design, Automotive Electronics, Computer Hardware, Software and Multimedia Portfolio."
+  >
 
-<title>Muhammad Vieri Al Falaq | Portfolio</title>
+  <meta name="author" content="Muhammad Vieri Al Falaq">
 
-<style>
+  <meta property="og:title" content="Muhammad Vieri Al Falaq | Engineering Portfolio">
+  <meta
+    property="og:description"
+    content="Electronics • Embedded Systems • PCB • Automotive Electronics • Computer Hardware • Software"
+  >
+  <meta property="og:type" content="website">
 
-/* =========================================================
-   VARIABLES
-========================================================= */
+  <style>
+    :root {
+      --bg: #050b14;
+      --bg-soft: #091321;
+      --panel: rgba(14, 26, 43, 0.82);
+      --panel-solid: #0e1a2b;
+      --panel-light: #12233a;
 
-:root {
-    --bg: #070b12;
-    --bg2: #0a1019;
-    --card: rgba(15, 23, 35, .72);
-    --card-solid: #101824;
+      --text: #edf6ff;
+      --text-soft: #b4c3d6;
+      --text-muted: #8093aa;
 
-    --text: #edf4ff;
-    --muted: #94a3b8;
+      --border: rgba(130, 166, 205, 0.18);
 
-    --cyan: #00d4ff;
-    --blue: #3b82f6;
-    --purple: #8b5cf6;
-    --green: #32d583;
+      --cyan: #55d9ff;
+      --blue: #5d8cff;
+      --purple: #9b7cff;
+      --green: #61e6a5;
+      --orange: #ffb86b;
+      --red: #ff7373;
 
-    --border: rgba(255,255,255,.09);
+      --radius: 20px;
+      --radius-small: 12px;
 
-    --max: 1180px;
-    --nav: 72px;
-}
+      --shadow:
+        0 25px 80px rgba(0, 0, 0, 0.30);
 
+      --max-width: 1180px;
+    }
 
-/* =========================================================
-   RESET
-========================================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    font-family:
+    body {
+      font-family:
         Inter,
         ui-sans-serif,
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        Roboto,
-        Arial,
         sans-serif;
 
-    background: var(--bg);
-    color: var(--text);
-
-    line-height: 1.7;
-
-    overflow-x: hidden;
-
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
-::selection {
-    background: var(--cyan);
-    color: #001018;
-}
-
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-.background {
-    position: fixed;
-    inset: 0;
-    z-index: -10;
-    pointer-events: none;
-    overflow: hidden;
-    background:
+      background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(0,212,255,.055),
-            transparent 30%
+          circle at 15% 0%,
+          rgba(85, 217, 255, 0.10),
+          transparent 32%
         ),
         radial-gradient(
-            circle at 90% 70%,
-            rgba(139,92,246,.045),
-            transparent 30%
+          circle at 85% 5%,
+          rgba(155, 124, 255, 0.10),
+          transparent 30%
         ),
         var(--bg);
-}
 
-.grid {
-    position: absolute;
-    inset: 0;
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
 
-    background-image:
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.025;
+
+      background-image:
         linear-gradient(
-            rgba(255,255,255,.018) 1px,
-            transparent 1px
+          rgba(255,255,255,.8) 1px,
+          transparent 1px
         ),
         linear-gradient(
-            90deg,
-            rgba(255,255,255,.018) 1px,
-            transparent 1px
+          90deg,
+          rgba(255,255,255,.8) 1px,
+          transparent 1px
         );
 
-    background-size: 55px 55px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 85%
-    );
-
-    opacity: .7;
-}
-
-.glow {
-    position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    border-radius: 50%;
-
-    opacity: .07;
-
-    filter: blur(80px);
-
-    contain: strict;
-}
-
-.glow.one {
-    background: var(--cyan);
-    left: -200px;
-    top: -180px;
-}
-
-.glow.two {
-    background: var(--purple);
-    right: -200px;
-    top: 45%;
-}
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: var(--nav);
-
-    z-index: 1000;
-
-    background: rgba(7,11,18,.86);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-container {
-    width: min(var(--max), calc(100% - 40px));
-    height: 100%;
-    margin: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-
-    font-weight: 850;
-    letter-spacing: -.5px;
-}
-
-.brand-mark {
-    width: 39px;
-    height: 39px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--cyan),
-            var(--purple)
-        );
-
-    color: white;
-
-    font-size: 14px;
-    font-weight: 900;
-
-    box-shadow: 0 8px 25px rgba(0,212,255,.12);
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--muted);
-
-    font-size: 13px;
-    font-weight: 700;
-
-    transition: color .2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--cyan);
-}
-
-.menu-toggle {
-    display: none;
-
-    width: 42px;
-    height: 42px;
-
-    border: 1px solid var(--border);
-    border-radius: 10px;
-
-    background: transparent;
-    color: var(--text);
-
-    cursor: pointer;
-}
-
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-.container {
-    width: min(var(--max), calc(100% - 40px));
-    margin: auto;
-}
-
-section {
-    padding: 110px 0;
-}
-
-.section-header {
-    max-width: 720px;
-    margin-bottom: 50px;
-}
-
-.section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-
-    margin-bottom: 12px;
-
-    color: var(--cyan);
-
-    font-size: 12px;
-    font-weight: 850;
-
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.section-label::before {
-    content: "";
-
-    width: 26px;
-    height: 2px;
-
-    background: var(--cyan);
-}
-
-.section-title {
-    font-size: clamp(32px, 5vw, 52px);
-    line-height: 1.08;
-    letter-spacing: -1.8px;
-
-    margin-bottom: 15px;
-}
-
-.section-description {
-    color: var(--muted);
-    font-size: 15px;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: 100svh;
-
-    padding-top: calc(var(--nav) + 70px);
-    padding-bottom: 70px;
-
-    display: flex;
-    align-items: center;
-}
-
-.hero-content {
-    display: grid;
-
-    grid-template-columns: 1.15fr .85fr;
-
-    align-items: center;
-
-    gap: 60px;
-}
-
-.status {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-
-    padding: 7px 13px;
-
-    margin-bottom: 24px;
-
-    border: 1px solid var(--border);
-    border-radius: 999px;
-
-    background: rgba(255,255,255,.025);
-
-    color: var(--muted);
-
-    font-size: 12px;
-    font-weight: 650;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: var(--green);
-
-    box-shadow: 0 0 12px rgba(50,213,131,.7);
-}
-
-.hero h1 {
-    max-width: 850px;
-
-    font-size: clamp(46px, 7vw, 84px);
-
-    line-height: .98;
-
-    letter-spacing: -4px;
-
-    margin-bottom: 25px;
-}
-
-.gradient {
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            #ffffff 45%,
-            #a78bfa
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.hero-subtitle {
-    max-width: 670px;
-
-    color: var(--muted);
-
-    font-size: clamp(16px, 2vw, 19px);
-
-    margin-bottom: 32px;
-}
-
-.hero-subtitle strong {
-    color: var(--text);
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    min-height: 46px;
-
-    padding: 12px 18px;
-
-    border-radius: 11px;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    transition:
-        transform .2s ease,
-        background .2s ease,
-        border-color .2s ease,
-        box-shadow .2s ease;
-
-    will-change: transform;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-}
-
-.btn-primary {
-    background: var(--cyan);
-    color: #031018;
-
-    box-shadow:
-        0 10px 30px rgba(0,212,255,.14);
-}
-
-.btn-primary:hover {
-    box-shadow:
-        0 15px 40px rgba(0,212,255,.22);
-}
-
-.btn-secondary {
-    border: 1px solid var(--border);
-
-    background: rgba(255,255,255,.035);
-
-    color: var(--text);
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,.075);
-    border-color: rgba(0,212,255,.25);
-}
-
-
-/* =========================================================
-   HERO PROFILE
-========================================================= */
-
-.hero-visual {
-    display: flex;
-    justify-content: center;
-}
-
-.profile-orbit {
-    position: relative;
-
-    width: min(390px, 80vw);
-    aspect-ratio: 1;
-
-    display: grid;
-    place-items: center;
-}
-
-.orbit {
-    position: absolute;
-    inset: 0;
-
-    border: 1px solid rgba(0,212,255,.14);
-
-    border-radius: 50%;
-
-    animation: rotate 20s linear infinite;
-
-    will-change: transform;
-}
-
-.orbit::before {
-    content: "";
-
-    position: absolute;
-
-    width: 10px;
-    height: 10px;
-
-    top: 14%;
-    left: 5%;
-
-    border-radius: 50%;
-
-    background: var(--cyan);
-
-    box-shadow: 0 0 18px var(--cyan);
-}
-
-.orbit.two {
-    inset: 38px;
-
-    border-color: rgba(139,92,246,.16);
-
-    animation-duration: 14s;
-    animation-direction: reverse;
-}
-
-.profile-card {
-    position: relative;
-
-    width: 250px;
-    min-height: 320px;
-
-    padding: 25px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid var(--border);
-    border-radius: 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.025)
-        );
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.35);
-
-    overflow: hidden;
-}
-
-.profile-photo {
-    width: 140px;
-    height: 140px;
-
-    object-fit: cover;
-
-    border-radius: 50%;
-
-    border: 2px solid rgba(0,212,255,.4);
-
-    margin-bottom: 20px;
-
-    background: #111827;
-}
-
-.profile-fallback {
-    width: 140px;
-    height: 140px;
-
-    display: none;
-    place-items: center;
-
-    border-radius: 50%;
-
-    margin-bottom: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,212,255,.18),
-            rgba(139,92,246,.25)
-        );
-
-    font-size: 42px;
-    font-weight: 900;
-}
-
-.profile-card h3 {
-    font-size: 18px;
-    margin-bottom: 4px;
-}
-
-.profile-card p {
-    color: var(--muted);
-    font-size: 12px;
-    text-align: center;
-}
-
-.profile-role {
-    margin-top: 12px;
-
-    padding: 5px 10px;
-
-    border: 1px solid var(--border);
-    border-radius: 999px;
-
-    color: var(--cyan);
-
-    font-size: 10px;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
+      background-size: 50px 50px;
+      z-index: -1;
     }
 
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats {
-    padding-top: 0;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-.stat {
-    padding: 27px 18px;
-
-    text-align: center;
-
-    border-right: 1px solid var(--border);
-}
-
-.stat:last-child {
-    border-right: none;
-}
-
-.stat-number {
-    display: block;
-
-    color: var(--cyan);
-
-    font-size: 28px;
-    font-weight: 900;
-}
-
-.stat-label {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-    display: grid;
-
-    grid-template-columns: .75fr 1.25fr;
-
-    gap: 60px;
-
-    align-items: start;
-}
-
-.about-card {
-    padding: 28px;
-
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    background: var(--card);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.12);
-}
-
-.about-card p {
-    color: var(--muted);
-    font-size: 14px;
-
-    margin-bottom: 17px;
-}
-
-.about-card p:last-child {
-    margin-bottom: 0;
-}
-
-.info-list {
-    display: grid;
-    gap: 14px;
-
-    list-style: none;
-}
-
-.info-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-
-    padding-bottom: 13px;
-
-    border-bottom: 1px solid var(--border);
-}
-
-.info-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.info-label {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.info-value {
-    text-align: right;
-
-    font-size: 13px;
-    font-weight: 750;
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 16px;
-}
-
-.skill-card {
-    padding: 24px;
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    background: var(--card);
-
-    transition:
-        transform .22s ease,
-        border-color .22s ease;
-
-    will-change: transform;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-
-    border-color:
-        rgba(0,212,255,.3);
-}
-
-.skill-icon {
-    width: 44px;
-    height: 44px;
-
-    display: grid;
-    place-items: center;
-
-    margin-bottom: 15px;
-
-    border-radius: 11px;
-
-    background:
-        rgba(0,212,255,.075);
-
-    color: var(--cyan);
-
-    font-size: 19px;
-}
-
-.skill-card h3 {
-    font-size: 16px;
-
-    margin-bottom: 7px;
-}
-
-.skill-card p {
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   PROJECTS
-========================================================= */
-
-.projects-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
-}
-
-.project-card {
-    position: relative;
-
-    min-height: 300px;
-
-    padding: 28px;
-
-    display: flex;
-    flex-direction: column;
-
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.05),
-            rgba(255,255,255,.015)
-        );
-
-    overflow: hidden;
-
-    transition:
-        transform .22s ease,
-        border-color .22s ease;
-
-    will-change: transform;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-
-    border-color:
-        rgba(0,212,255,.28);
-}
-
-.project-number {
-    color: rgba(255,255,255,.1);
-
-    font-size: 48px;
-    font-weight: 900;
-
-    line-height: 1;
-
-    margin-bottom: 20px;
-}
-
-.project-card h3 {
-    font-size: 21px;
-
-    margin-bottom: 10px;
-}
-
-.project-card p {
-    color: var(--muted);
-
-    font-size: 13px;
-
-    margin-bottom: 20px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 6px;
-
-    margin-top: auto;
-}
-
-.tag {
-    padding: 5px 9px;
-
-    border: 1px solid var(--border);
-    border-radius: 999px;
-
-    color: #b9c5d6;
-
-    font-size: 10px;
-    font-weight: 750;
-}
-
-
-/* =========================================================
-   TIMELINE
-========================================================= */
-
-.timeline {
-    position: relative;
-
-    max-width: 850px;
-
-    margin: auto;
-}
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 8px;
-    top: 0;
-    bottom: 0;
-
-    width: 1px;
-
-    background: var(--border);
-}
-
-.timeline-item {
-    position: relative;
-
-    padding-left: 42px;
-    padding-bottom: 42px;
-}
-
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-
-.timeline-dot {
-    position: absolute;
-
-    left: 2px;
-    top: 6px;
-
-    width: 13px;
-    height: 13px;
-
-    border-radius: 50%;
-
-    background: var(--cyan);
-
-    box-shadow:
-        0 0 0 5px rgba(0,212,255,.07),
-        0 0 15px rgba(0,212,255,.4);
-}
-
-.timeline-date {
-    color: var(--cyan);
-
-    font-size: 11px;
-    font-weight: 850;
-
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.timeline-item h3 {
-    font-size: 18px;
-
-    margin: 4px 0;
-}
-
-.timeline-item p {
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   CERTIFICATES
-========================================================= */
-
-.certificates {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 16px;
-}
-
-.certificate {
-    padding: 23px;
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    background: var(--card);
-}
-
-.certificate-icon {
-    font-size: 25px;
-
-    margin-bottom: 12px;
-}
-
-.certificate h3 {
-    font-size: 16px;
-
-    margin-bottom: 6px;
-}
-
-.certificate p {
-    color: var(--muted);
-
-    font-size: 12px;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-box {
-    position: relative;
-
-    padding: 50px;
-
-    border: 1px solid var(--border);
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,212,255,.07),
-            rgba(139,92,246,.06)
-        );
-
-    overflow: hidden;
-}
-
-.contact-box h2 {
-    max-width: 650px;
-
-    font-size: clamp(30px, 5vw, 50px);
-
-    line-height: 1.08;
-
-    letter-spacing: -1.5px;
-
-    margin-bottom: 15px;
-}
-
-.contact-box p {
-    max-width: 650px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-
-    margin-bottom: 25px;
-}
-
-.contact-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    padding: 35px 0;
-
-    border-top: 1px solid var(--border);
-
-    color: var(--muted);
-
-    font-size: 12px;
-}
-
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.footer-brand {
-    color: var(--text);
-    font-weight: 800;
-}
-
-
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(18px);
-
-    transition:
-        opacity .55s ease,
-        transform .55s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================================================
-   RESPONSIVE TABLET
-========================================================= */
-
-@media (max-width: 950px) {
-
-    .hero-content {
-        grid-template-columns: 1fr;
-
-        text-align: center;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        order: -1;
-    }
-
-    .profile-orbit {
-        width: 320px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .certificates {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    :root {
-        --nav: 64px;
-    }
-
-    html {
-        scroll-padding-top: 75px;
+    button,
+    input {
+      font: inherit;
     }
 
     .container {
-        width: min(100% - 28px, var(--max));
+      width: min(var(--max-width), 92%);
+      margin-inline: auto;
     }
 
-    section {
-        padding: 80px 0;
-    }
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     .navbar {
-        height: 64px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
 
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+      background: rgba(5, 11, 20, 0.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-container {
-        width: calc(100% - 28px);
+    .nav-inner {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .brand span {
+      color: var(--cyan);
     }
 
     .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 700;
+
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-button {
+      display: none;
+
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding:
+        130px
+        0
+        90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr .75fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--cyan);
+
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+
+      background: var(--cyan);
+    }
+
+    .hero h1 {
+      margin-top: 20px;
+
+      font-size:
+        clamp(
+          44px,
+          7vw,
+          82px
+        );
+
+      line-height: 1.02;
+      letter-spacing: -3px;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          #ffffff 45%,
+          var(--purple)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 25px;
+
+      color: var(--text-soft);
+
+      font-size:
+        clamp(
+          17px,
+          2vw,
+          21px
+        );
+
+      max-width: 760px;
+    }
+
+    .hero-description {
+      margin-top: 16px;
+
+      color: var(--text-muted);
+
+      max-width: 700px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 46px;
+
+      padding:
+        0 18px;
+
+      border-radius: 12px;
+
+      border: 1px solid var(--border);
+
+      background: var(--panel);
+
+      color: var(--text);
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      border-color: rgba(85, 217, 255, .45);
+    }
+
+    .button-primary {
+      color: #04111a;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    .button-primary:hover {
+      background: #8ae7ff;
+    }
+
+    .profile-card {
+      position: relative;
+
+      padding: 30px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18, 35, 58, .96),
+          rgba(7, 17, 30, .96)
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 130px;
+      height: 130px;
+
+      right: -50px;
+      top: -50px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(85,217,255,.25),
+          transparent 70%
+        );
+    }
+
+    .profile-image {
+      width: 130px;
+      height: 130px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border:
+        3px solid
+        var(--cyan);
+
+      box-shadow:
+        0 0 0 7px
+        rgba(85,217,255,.08);
+
+      margin-bottom: 22px;
+    }
+
+    .profile-card h2 {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .profile-role {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .profile-meta {
+      display: grid;
+      gap: 11px;
+
+      margin-top: 25px;
+
+      color: var(--text-muted);
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-header {
+      margin-bottom: 38px;
+    }
+
+    .section-header h2 {
+      margin-top: 10px;
+
+      font-size:
+        clamp(
+          30px,
+          5vw,
+          44px
+        );
+
+      line-height: 1.1;
+
+      letter-spacing: -1.5px;
+    }
+
+    .section-description {
+      color: var(--text-muted);
+      max-width: 760px;
+      margin-top: 12px;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18,35,58,.88),
+          rgba(9,20,34,.88)
+        );
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .card-content {
+      padding: 26px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .about-card {
+      padding: 28px;
+    }
+
+    .about-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background:
+        rgba(85,217,255,.08);
+
+      border:
+        1px solid
+        rgba(85,217,255,.18);
+
+      font-size: 21px;
+
+      margin-bottom: 20px;
+    }
+
+    .about-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-container {
+      padding: 28px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 7px 12px;
+
+      border-radius: 999px;
+
+      background: #0a1728;
+
+      border:
+        1px solid
+        var(--border);
+
+      color: #d8e7f7;
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .skill:hover {
+      border-color: rgba(85,217,255,.45);
+      color: var(--cyan);
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .stat-number {
+      display: block;
+
+      color: var(--cyan);
+
+      font-size: 36px;
+      font-weight: 900;
+
+      line-height: 1;
+    }
+
+    .stat-label {
+      display: block;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+
+      margin-top: 8px;
+    }
+
+    /* =========================
+       PROJECT FILTER
+    ========================= */
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+
+      margin-bottom: 25px;
+    }
+
+    .filter-button {
+      border:
+        1px solid
+        var(--border);
+
+      background: var(--panel);
+
+      color: var(--text-muted);
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .2s ease;
+    }
+
+    .filter-button:hover,
+    .filter-button.active {
+      background: var(--cyan);
+      color: #04111a;
+      border-color: var(--cyan);
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(85,217,255,.35);
+    }
+
+    .project-top-line {
+      height: 3px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--purple)
+        );
+    }
+
+    .project-body {
+      padding: 25px;
+    }
+
+    .project-number {
+      color: var(--cyan);
+
+      font-size: 10px;
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 7px;
+    }
+
+    .project h3 {
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .project-stack {
+      color: #a9bfd7;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      margin-top: 7px;
+    }
+
+    .project-description {
+      color: var(--text-muted);
+
+      font-size: 13px;
+
+      margin-top: 14px;
+    }
+
+    .project ul {
+      margin-top: 15px;
+      padding-left: 17px;
+    }
+
+    .project li {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin: 3px 0;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 18px;
+    }
+
+    .status {
+      display: inline-flex;
+
+      border-radius: 999px;
+
+      padding:
+        4px 9px;
+
+      font-size: 10px;
+      font-weight: 900;
+
+      color: var(--green);
+
+      border:
+        1px solid
+        rgba(97,230,165,.25);
+
+      background:
+        rgba(97,230,165,.05);
+    }
+
+    .project-link {
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .project.hidden {
+      display: none;
+    }
+
+    /* =========================
+       WORKFLOW
+    ========================= */
+
+    .workflow-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .workflow-card {
+      padding: 25px;
+    }
+
+    .workflow-number {
+      color: var(--cyan);
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .workflow-card h3 {
+      margin-top: 7px;
+      font-size: 19px;
+    }
+
+    .workflow-card p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    /* =========================
+       TIMELINE
+    ========================= */
+
+    .timeline {
+      position: relative;
+
+      margin-left: 10px;
+
+      display: grid;
+      gap: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 5px;
+      top: 10px;
+      bottom: 10px;
+
+      width: 1px;
+
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+
+      margin-left: 35px;
+
+      padding: 25px;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+
+      left: -36px;
+      top: 29px;
+
+      width: 11px;
+      height: 11px;
+
+      border-radius: 50%;
+
+      background: var(--cyan);
+
+      box-shadow:
+        0 0 0 5px var(--bg);
+    }
+
+    .timeline-date {
+      color: var(--cyan);
+
+      font-size: 11px;
+      font-weight: 900;
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timeline-item h3 {
+      margin-top: 6px;
+      font-size: 20px;
+    }
+
+    .timeline-item p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       PORTFOLIO CATEGORIES
+    ========================= */
+
+    .category-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+    }
+
+    .category {
+      padding: 22px;
+    }
+
+    .category-icon {
+      font-size: 25px;
+    }
+
+    .category h3 {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .category p {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+    }
+
+    .gallery-placeholder {
+      min-height: 170px;
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+
+      padding: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0d1c30,
+          #091321
+        );
+
+      border:
+        1px dashed
+        var(--border);
+
+      border-radius: 16px;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+    .gallery-placeholder strong {
+      display: block;
+
+      color: var(--cyan);
+
+      font-size: 25px;
+
+      margin-bottom: 5px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr .9fr;
+
+      gap: 20px;
+    }
+
+    .contact-card {
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      font-size: 22px;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .contact-links {
+      display: grid;
+
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+    .contact-link {
+      padding: 13px 15px;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 12px;
+
+      background: rgba(0,0,0,.12);
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+      transition: .2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--cyan);
+      border-color: rgba(85,217,255,.4);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      padding: 35px 0;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 950px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .profile-card {
+        max-width: 550px;
+      }
+
+      .projects-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+
         position: absolute;
 
-        top: 64px;
-        left: 14px;
-        right: 14px;
-
-        display: none;
+        left: 4%;
+        right: 4%;
+        top: 72px;
 
         flex-direction: column;
         align-items: stretch;
 
-        gap: 0;
+        padding: 15px;
 
-        padding: 8px;
+        background: var(--panel-solid);
 
-        border: 1px solid var(--border);
+        border:
+          1px solid
+          var(--border);
+
         border-radius: 15px;
+      }
 
-        background: rgba(7,11,18,.97);
-    }
-
-    .nav-links.open {
+      .nav-links.open {
         display: flex;
-    }
+      }
 
-    .nav-links li {
-        width: 100%;
-    }
+      .nav-links a {
+        padding: 9px;
+      }
 
-    .nav-links a {
+      .menu-button {
         display: block;
+      }
 
-        padding: 12px 13px;
-
-        border-radius: 9px;
-    }
-
-    .nav-links a:hover {
-        background: rgba(255,255,255,.04);
-    }
-
-    .menu-toggle {
-        display: grid;
-        place-items: center;
-    }
-
-    .hero {
-        min-height: auto;
-
-        padding-top: 105px;
-    }
-
-    .hero-content {
-        gap: 40px;
-    }
-
-    .hero h1 {
-        font-size: clamp(42px, 14vw, 65px);
-
-        letter-spacing: -3px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .profile-orbit {
-        width: 270px;
-    }
-
-    .orbit {
-        animation: none;
-    }
-
-    .orbit.two {
-        animation: none;
-    }
-
-    .profile-card {
-        width: 210px;
-        min-height: 275px;
-    }
-
-    .profile-photo,
-    .profile-fallback {
-        width: 105px;
-        height: 105px;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .stat:nth-child(2) {
-        border-right: none;
-    }
-
-    .stat:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
-    }
-
-    .skills-grid,
-    .projects-grid,
-    .certificates {
+      .about-grid,
+      .workflow-grid {
         grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
     }
 
-    .project-card {
-        min-height: 280px;
-    }
+    @media (max-width: 560px) {
+      .hero h1 {
+        letter-spacing: -2px;
+      }
 
-    .contact-box {
-        padding: 30px 22px;
-    }
+      section {
+        padding: 70px 0;
+      }
 
-    .contact-buttons {
+      .projects-grid,
+      .category-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
         flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
-
-    .footer-content {
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .glow {
-        display: none;
-    }
-
-    .grid {
-        opacity: .35;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL DEVICES
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .section-title {
-        font-size: 32px;
-    }
-
-    .profile-orbit {
-        width: 240px;
-    }
-
-    .profile-card {
-        width: 195px;
-    }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-
-    .reveal {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-</style>
+  </style>
 </head>
-
 
 <body>
 
 <!-- =========================================================
-     BACKGROUND
+     NAVIGATION
 ========================================================= -->
 
-<div class="background" aria-hidden="true">
-    <div class="grid"></div>
-    <div class="glow one"></div>
-    <div class="glow two"></div>
-</div>
+<nav class="navbar">
+  <div class="container nav-inner">
 
+    <a class="brand" href="#home">
+      VIERI<span>.</span>
+    </a>
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Buka menu"
+    >
+      ☰
+    </button>
 
-<header class="navbar">
-
-    <div class="nav-container">
-
-        <a href="#home" class="brand">
-
-            <div class="brand-mark">
-                VA
-            </div>
-
-            <span>Vieri Al Falaq</span>
-
-        </a>
-
-
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Buka menu"
-            aria-expanded="false">
-
-            ☰
-
-        </button>
-
-
-        <nav>
-
-            <ul class="nav-links" id="navLinks">
-
-                <li>
-                    <a href="#home" class="active">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#skills">
-                        Skills
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#projects">
-                        Projects
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#education">
-                        Education
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#categories">Portfolio</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
 
-</header>
-
+  </div>
+</nav>
 
 
 <main>
@@ -1521,207 +1203,108 @@ footer {
 
 <section class="hero" id="home">
 
-    <div class="container">
+  <div class="container hero-grid">
 
-        <div class="hero-content">
+    <div>
 
+      <div class="eyebrow">
+        Engineering & Technology Portfolio
+      </div>
 
-            <div class="hero-text reveal">
+      <h1>
+        Muhammad
+        <span class="gradient-text">
+          Vieri Al Falaq
+        </span>
+      </h1>
 
-                <div class="status">
+      <p class="hero-subtitle">
+        Electronics • Embedded Systems • PCB Design •
+        Automotive Electronics • Computer Hardware • Software
+      </p>
 
-                    <span class="status-dot"></span>
+      <p class="hero-description">
+        Portfolio ini merupakan bank data pengalaman, proyek,
+        eksperimen, troubleshooting, dan pengembangan teknologi
+        yang saya kerjakan secara hands-on.
+      </p>
 
-                    Open to opportunities & projects
+      <div class="hero-buttons">
 
-                </div>
+        <a
+          class="button button-primary"
+          href="#projects"
+        >
+          ⚡ Lihat Proyek
+        </a>
 
+        <a
+          class="button"
+          href="cv-vieri.pdf"
+          target="_blank"
+        >
+          📄 Buka CV
+        </a>
 
-                <h1>
+        <a
+          class="button"
+          href="https://github.com/Nyonyot02"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </a>
 
-                    Muhammad
-                    <span class="gradient">
-                        Vieri Al Falaq
-                    </span>
-
-                </h1>
-
-
-                <p class="hero-subtitle">
-
-                    Mahasiswa <strong>Pendidikan Fisika</strong>
-                    yang memiliki ketertarikan pada
-                    <strong>embedded systems, electronics,
-                    ECU technology</strong> dan pengembangan
-                    perangkat lunak.
-
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <!-- DOWNLOAD CV -->
-
-                    <a
-                        href="cv-vieri.pdf"
-                        download="CV-Muhammad-Vieri-Al-Falaq.pdf"
-                        class="btn btn-primary">
-
-                        📄 Download CV
-
-                    </a>
-
-
-                    <!-- PROJECT -->
-
-                    <a
-                        href="#projects"
-                        class="btn btn-secondary">
-
-                        ⚡ Lihat Project
-
-                    </a>
-
-
-                    <!-- GITHUB -->
-
-                    <a
-                        href="https://github.com/Nyonyot02"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-secondary">
-
-                        GitHub
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- PROFILE -->
-
-            <div class="hero-visual reveal">
-
-                <div class="profile-orbit">
-
-                    <div class="orbit"></div>
-
-                    <div class="orbit two"></div>
-
-
-                    <div class="profile-card">
-
-                        <img
-                            src="foto-vieri.jpg"
-                            alt="Muhammad Vieri Al Falaq"
-                            class="profile-photo"
-                            onerror="
-                                this.style.display='none';
-                                document.querySelector('.profile-fallback').style.display='grid';
-                            "
-                        >
-
-                        <div class="profile-fallback">
-                            VA
-                        </div>
-
-
-                        <h3>
-                            Vieri Al Falaq
-                        </h3>
-
-                        <p>
-                            Physics Education
-                        </p>
-
-                        <div class="profile-role">
-                            Embedded Systems
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
 
+    <div class="profile-card">
 
+      <img
+        class="profile-image"
+        src="foto-vieri.jpg"
+        alt="Muhammad Vieri Al Falaq"
+      >
 
-<!-- =========================================================
-     STATS
-========================================================= -->
+      <h2>
+        Muhammad Vieri Al Falaq
+      </h2>
 
-<section class="stats">
+      <div class="profile-role">
+        Electronics & Technology Enthusiast
+      </div>
 
-    <div class="container">
+      <div class="profile-meta">
 
-        <div class="stats-grid reveal">
-
-            <div class="stat">
-
-                <span class="stat-number">
-                    2023
-                </span>
-
-                <span class="stat-label">
-                    University Start
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <span class="stat-number">
-                    ESP32
-                </span>
-
-                <span class="stat-label">
-                    Embedded Platform
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <span class="stat-number">
-                    ECU
-                </span>
-
-                <span class="stat-label">
-                    Automotive Technology
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <span class="stat-number">
-                    K-Line
-                </span>
-
-                <span class="stat-label">
-                    Communication
-                </span>
-
-            </div>
-
+        <div>
+          📍 Jakarta, Indonesia
         </div>
+
+        <div>
+          🎓 Universitas Indraprasta PGRI
+        </div>
+
+        <div>
+          🔧 Electronics & Embedded Systems
+        </div>
+
+        <div>
+          🏍️ Automotive Electronics
+        </div>
+
+        <div>
+          💻 Hardware & Software
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </div>
 
+</section>
 
 
 <!-- =========================================================
@@ -1730,154 +1313,109 @@ footer {
 
 <section id="about">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-header reveal">
+    <div class="section-header">
 
-            <div class="section-label">
-                About Me
-            </div>
+      <div class="eyebrow">
+        01 — About
+      </div>
 
-            <h2 class="section-title">
-                Mengenal Vieri
-            </h2>
+      <h2>
+        Tentang Saya
+      </h2>
 
-            <p class="section-description">
-
-                Profil singkat, latar belakang pendidikan,
-                dan bidang teknologi yang sedang dikembangkan.
-
-            </p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-
-            <div class="about-card reveal">
-
-                <p>
-
-                    Saya adalah mahasiswa Pendidikan Fisika
-                    yang memiliki minat pada teknologi,
-                    elektronika, embedded system dan
-                    automotive technology.
-
-                </p>
-
-                <p>
-
-                    Saya senang menggabungkan konsep fisika,
-                    elektronika, pemrograman dan sistem digital
-                    untuk membuat solusi yang dapat digunakan
-                    secara nyata.
-
-                </p>
-
-                <p>
-
-                    Salah satu fokus project yang sedang
-                    dikembangkan adalah perangkat diagnostic
-                    ECU berbasis ESP32 dan komunikasi K-Line.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="about-card reveal">
-
-                <ul class="info-list">
-
-                    <li class="info-item">
-
-                        <span class="info-label">
-                            Nama
-                        </span>
-
-                        <span class="info-value">
-                            Muhammad Vieri Al Falaq
-                        </span>
-
-                    </li>
-
-
-                    <li class="info-item">
-
-                        <span class="info-label">
-                            Pendidikan
-                        </span>
-
-                        <span class="info-value">
-                            Pendidikan Fisika
-                        </span>
-
-                    </li>
-
-
-                    <li class="info-item">
-
-                        <span class="info-label">
-                            Universitas
-                        </span>
-
-                        <span class="info-value">
-                            Universitas Indraprasta PGRI
-                        </span>
-
-                    </li>
-
-
-                    <li class="info-item">
-
-                        <span class="info-label">
-                            Angkatan
-                        </span>
-
-                        <span class="info-value">
-                            2023
-                        </span>
-
-                    </li>
-
-
-                    <li class="info-item">
-
-                        <span class="info-label">
-                            Fokus
-                        </span>
-
-                        <span class="info-value">
-                            Embedded & ECU Technology
-                        </span>
-
-                    </li>
-
-
-                    <li class="info-item">
-
-                        <span class="info-label">
-                            Location
-                        </span>
-
-                        <span class="info-value">
-                            Jakarta, Indonesia
-                        </span>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
+      <p class="section-description">
+        Saya membangun pengalaman teknis melalui praktik langsung:
+        merakit, mengukur, menguji, melakukan troubleshooting,
+        memperbaiki, dan mendokumentasikan hasilnya.
+      </p>
 
     </div>
 
-</section>
 
+    <div class="about-grid">
+
+      <div class="card about-card">
+
+        <div class="about-icon">
+          🔧
+        </div>
+
+        <h3>
+          Hands-on Engineering
+        </h3>
+
+        <p>
+          Memiliki ketertarikan pada elektronik, mikrokontroler,
+          wiring, PCB, komunikasi serial, kelistrikan kendaraan,
+          dan troubleshooting hardware.
+        </p>
+
+      </div>
+
+
+      <div class="card about-card">
+
+        <div class="about-icon">
+          🧠
+        </div>
+
+        <h3>
+          Problem Solving
+        </h3>
+
+        <p>
+          Pendekatan kerja berorientasi diagnosis:
+          memahami sistem, membuat hipotesis, melakukan pengukuran,
+          mengisolasi masalah, kemudian melakukan perbaikan.
+        </p>
+
+      </div>
+
+
+      <div class="card about-card">
+
+        <div class="about-icon">
+          💻
+        </div>
+
+        <h3>
+          Hardware + Software
+        </h3>
+
+        <p>
+          Menggabungkan hardware dan software melalui Arduino,
+          ESP32, ESP8266, C/C++, Python, web interface,
+          Android, serta Git/GitHub.
+        </p>
+
+      </div>
+
+
+      <div class="card about-card">
+
+        <div class="about-icon">
+          📚
+        </div>
+
+        <h3>
+          Continuous Learning
+        </h3>
+
+        <p>
+          Portfolio ini dirancang sebagai living documentation.
+          Proyek dapat terus diperbarui dengan schematic,
+          source code, foto, hasil pengujian, dan pengembangan baru.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -1886,144 +1424,123 @@ footer {
 
 <section id="skills">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-header reveal">
+    <div class="section-header">
 
-            <div class="section-label">
-                Skills
-            </div>
+      <div class="eyebrow">
+        02 — Technical Skills
+      </div>
 
-            <h2 class="section-title">
-                Technical Skills
-            </h2>
+      <h2>
+        Skills & Technology
+      </h2>
 
-            <p class="section-description">
-
-                Teknologi dan bidang yang menjadi bagian
-                dari perjalanan belajar dan pengembangan project.
-
-            </p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    ESP32
-                </h3>
-
-                <p>
-                    Embedded development, serial communication,
-                    Wi-Fi, web interface dan hardware control.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    🔌
-                </div>
-
-                <h3>
-                    Electronics
-                </h3>
-
-                <p>
-                    Microcontroller, digital electronics,
-                    interface circuit dan hardware prototyping.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    🚗
-                </div>
-
-                <h3>
-                    ECU Technology
-                </h3>
-
-                <p>
-                    Automotive diagnostics, ECU communication,
-                    data acquisition dan K-Line technology.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    💻
-                </div>
-
-                <h3>
-                    Programming
-                </h3>
-
-                <p>
-                    C/C++, Arduino ecosystem, Python,
-                    web technologies dan application development.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    🌐
-                </div>
-
-                <h3>
-                    Web Development
-                </h3>
-
-                <p>
-                    HTML, CSS, JavaScript dan deployment
-                    menggunakan GitHub Pages.
-                </p>
-
-            </article>
-
-
-            <article class="skill-card reveal">
-
-                <div class="skill-icon">
-                    📱
-                </div>
-
-                <h3>
-                    Android Development
-                </h3>
-
-                <p>
-                    Pengembangan aplikasi Android dengan
-                    Android Studio dan Kotlin.
-                </p>
-
-            </article>
-
-        </div>
+      <p class="section-description">
+        Teknologi dan area teknis yang pernah digunakan,
+        dipelajari, atau menjadi fokus pengembangan.
+      </p>
 
     </div>
 
+
+    <div class="card skills-container">
+
+      <div class="skills">
+
+        <span class="skill">Arduino</span>
+        <span class="skill">ESP32</span>
+        <span class="skill">ESP8266</span>
+
+        <span class="skill">C</span>
+        <span class="skill">C++</span>
+        <span class="skill">Python</span>
+
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+
+        <span class="skill">SQL</span>
+        <span class="skill">Kotlin</span>
+
+        <span class="skill">PCB Design</span>
+        <span class="skill">EasyEDA</span>
+
+        <span class="skill">Digital Electronics</span>
+        <span class="skill">Sensors</span>
+
+        <span class="skill">UART</span>
+        <span class="skill">K-Line</span>
+
+        <span class="skill">Automotive Wiring</span>
+        <span class="skill">Relay</span>
+        <span class="skill">Buck Converter</span>
+
+        <span class="skill">Soldering</span>
+        <span class="skill">Testing</span>
+        <span class="skill">Troubleshooting</span>
+
+        <span class="skill">Computer Hardware</span>
+
+        <span class="skill">Android Development</span>
+
+        <span class="skill">Git</span>
+        <span class="skill">GitHub</span>
+
+        <span class="skill">Multimedia</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="stats">
+
+      <div class="card stat">
+        <span class="stat-number">12+</span>
+        <span class="stat-label">
+          Featured Projects
+        </span>
+      </div>
+
+      <div class="card stat">
+        <span class="stat-number">8+</span>
+        <span class="stat-label">
+          Technology Areas
+        </span>
+      </div>
+
+      <div class="card stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">
+          MCU Platforms
+        </span>
+      </div>
+
+      <div class="card stat">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">
+          Experiments & Learning
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -2032,299 +1549,924 @@ footer {
 
 <section id="projects">
 
-    <div class="container">
-
-        <div class="section-header reveal">
-
-            <div class="section-label">
-                Projects
-            </div>
-
-            <h2 class="section-title">
-                Selected Projects
-            </h2>
-
-            <p class="section-description">
-
-                Beberapa project teknologi yang sedang
-                dikembangkan dan dipelajari.
-
-            </p>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-
-            <!-- PROJECT 01 -->
-
-            <article class="project-card reveal">
-
-                <div class="project-number">
-                    01
-                </div>
-
-                <h3>
-                    Proletar ECU Tech
-                </h3>
-
-                <p>
-
-                    Project diagnostic ECU berbasis ESP32
-                    untuk membaca dan berkomunikasi dengan
-                    sistem ECU melalui interface K-Line.
-
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">
-                        ESP32
-                    </span>
-
-                    <span class="tag">
-                        K-Line
-                    </span>
-
-                    <span class="tag">
-                        ECU
-                    </span>
-
-                    <span class="tag">
-                        C++
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PROJECT 02 -->
-
-            <article class="project-card reveal">
-
-                <div class="project-number">
-                    02
-                </div>
-
-                <h3>
-                    Honda Scantool
-                </h3>
-
-                <p>
-
-                    Perangkat scanner ECU Honda dengan
-                    ESP32, serial communication dan
-                    web-based diagnostic interface.
-
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">
-                        ESP32
-                    </span>
-
-                    <span class="tag">
-                        Honda PGM-FI
-                    </span>
-
-                    <span class="tag">
-                        Serial
-                    </span>
-
-                    <span class="tag">
-                        Web UI
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PROJECT 03 -->
-
-            <article class="project-card reveal">
-
-                <div class="project-number">
-                    03
-                </div>
-
-                <h3>
-                    K-Line Interface
-                </h3>
-
-                <p>
-
-                    Pengembangan hardware interface untuk
-                    komunikasi antara microcontroller dengan
-                    ECU automotive melalui jalur K-Line.
-
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">
-                        Electronics
-                    </span>
-
-                    <span class="tag">
-                        K-Line
-                    </span>
-
-                    <span class="tag">
-                        PC817
-                    </span>
-
-                    <span class="tag">
-                        UART
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PROJECT 04 -->
-
-            <article class="project-card reveal">
-
-                <div class="project-number">
-                    04
-                </div>
-
-                <h3>
-                    ESP32 Web Diagnostic
-                </h3>
-
-                <p>
-
-                    Interface web lokal yang berjalan pada
-                    ESP32 untuk menampilkan parameter ECU
-                    dan data monitoring secara realtime.
-
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">
-                        HTML
-                    </span>
-
-                    <span class="tag">
-                        CSS
-                    </span>
-
-                    <span class="tag">
-                        JavaScript
-                    </span>
-
-                    <span class="tag">
-                        ESP32 AP
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PROJECT 05 -->
-
-            <article class="project-card reveal">
-
-                <div class="project-number">
-                    05
-                </div>
-
-                <h3>
-                    Embedded Electronics
-                </h3>
-
-                <p>
-
-                    Eksperimen dan pengembangan berbagai
-                    rangkaian elektronik menggunakan
-                    microcontroller dan sensor.
-
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">
-                        Arduino
-                    </span>
-
-                    <span class="tag">
-                        ESP32
-                    </span>
-
-                    <span class="tag">
-                        Sensors
-                    </span>
-
-                    <span class="tag">
-                        Hardware
-                    </span>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- PROJECT 06 -->
-
-            <article class="project-card reveal">
-
-                <div class="project-number">
-                    06
-                </div>
-
-                <h3>
-                    Attendance Application
-                </h3>
-
-                <p>
-
-                    Konsep aplikasi absensi dengan fitur
-                    pencatatan waktu, foto, lokasi dan
-                    pengelolaan data.
-
-                </p>
-
-                <div class="tags">
-
-                    <span class="tag">
-                        Android
-                    </span>
-
-                    <span class="tag">
-                        Kotlin
-                    </span>
-
-                    <span class="tag">
-                        UI/UX
-                    </span>
-
-                    <span class="tag">
-                        Data
-                    </span>
-
-                </div>
-
-            </article>
-
-        </div>
+  <div class="container">
+
+    <div class="section-header">
+
+      <div class="eyebrow">
+        03 — Featured Projects
+      </div>
+
+      <h2>
+        Proyek Utama
+      </h2>
+
+      <p class="section-description">
+        Proyek ditampilkan berdasarkan area teknologi.
+        Dokumentasi detail dapat dikembangkan lebih lanjut
+        di folder masing-masing pada repository GitHub.
+      </p>
 
     </div>
 
+
+    <div class="filter-bar">
+
+      <button
+        class="filter-button active"
+        data-filter="all"
+      >
+        Semua
+      </button>
+
+      <button
+        class="filter-button"
+        data-filter="automotive"
+      >
+        Automotive
+      </button>
+
+      <button
+        class="filter-button"
+        data-filter="embedded"
+      >
+        Embedded
+      </button>
+
+      <button
+        class="filter-button"
+        data-filter="electronics"
+      >
+        Electronics
+      </button>
+
+      <button
+        class="filter-button"
+        data-filter="software"
+      >
+        Software
+      </button>
+
+      <button
+        class="filter-button"
+        data-filter="hardware"
+      >
+        Hardware
+      </button>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+      <!-- PROJECT 01 -->
+
+      <article
+        class="card project"
+        data-category="automotive embedded"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 01
+          </div>
+
+          <h3>
+            Honda ECU K-Line Diagnostic Scanner
+          </h3>
+
+          <div class="project-stack">
+            ESP32 • K-Line • UART • Web UI
+          </div>
+
+          <p class="project-description">
+            Pengembangan alat diagnosis ECU Honda berbasis ESP32
+            dengan komunikasi K-Line dan antarmuka web.
+          </p>
+
+          <ul>
+            <li>ESP32 Wi-Fi Access Point</li>
+            <li>UART 10400 8N1</li>
+            <li>ECU wake-up communication</li>
+            <li>Live data architecture</li>
+            <li>Web monitoring interface</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              In Development
+            </span>
+
+            <a
+              class="project-link"
+              href="#"
+            >
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 02 -->
+
+      <article
+        class="card project"
+        data-category="automotive electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 02
+          </div>
+
+          <h3>
+            K-Line Communication Module
+          </h3>
+
+          <div class="project-stack">
+            Automotive Interface • PC817 • UART • PCB
+          </div>
+
+          <p class="project-description">
+            Eksperimen pembuatan interface komunikasi antara
+            mikrokontroler atau serial interface dengan jalur K-Line ECU.
+          </p>
+
+          <ul>
+            <li>Signal TX/RX</li>
+            <li>Interface isolation</li>
+            <li>Automotive wiring</li>
+            <li>PCB concept</li>
+            <li>BOM development</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Prototype
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 03 -->
+
+      <article
+        class="card project"
+        data-category="embedded software"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 03
+          </div>
+
+          <h3>
+            ESP32 Web-Based OBD Monitor
+          </h3>
+
+          <div class="project-stack">
+            ESP32 • Wi-Fi • WebServer • JSON
+          </div>
+
+          <p class="project-description">
+            Antarmuka monitoring berbasis web untuk menampilkan
+            parameter kendaraan dan data sensor secara terstruktur.
+          </p>
+
+          <ul>
+            <li>Responsive dashboard</li>
+            <li>JSON data endpoint</li>
+            <li>History data</li>
+            <li>Real-time polling</li>
+            <li>Sensor parameter cards</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Prototype
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 04 -->
+
+      <article
+        class="card project"
+        data-category="electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 04
+          </div>
+
+          <h3>
+            Portable Adjustable Power Supply
+          </h3>
+
+          <div class="project-stack">
+            DC-DC • Power Electronics • Wiring
+          </div>
+
+          <p class="project-description">
+            Perakitan power supply portable dengan output
+            yang dapat disesuaikan untuk kebutuhan pengujian elektronik.
+          </p>
+
+          <ul>
+            <li>DC power conversion</li>
+            <li>Input/output wiring</li>
+            <li>Output adjustment</li>
+            <li>Testing</li>
+            <li>Troubleshooting</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Completed Prototype
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 05 -->
+
+      <article
+        class="card project"
+        data-category="automotive electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 05
+          </div>
+
+          <h3>
+            Automotive Electrical & Bi-LED
+          </h3>
+
+          <div class="project-stack">
+            Relay • Buck Converter • Motorcycle Wiring
+          </div>
+
+          <p class="project-description">
+            Praktik kelistrikan sepeda motor, wiring, relay control,
+            buck converter, dan sistem pencahayaan Bi-LED.
+          </p>
+
+          <ul>
+            <li>Motorcycle wiring</li>
+            <li>Relay control</li>
+            <li>Buck converter</li>
+            <li>Electrical diagnosis</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Hands-on
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 06 -->
+
+      <article
+        class="card project"
+        data-category="automotive electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 06
+          </div>
+
+          <h3>
+            Automotive Audio
+          </h3>
+
+          <div class="project-stack">
+            Motorcycle • Audio Wiring • Power
+          </div>
+
+          <p class="project-description">
+            Perakitan dan wiring sistem audio pada sepeda motor
+            dengan fokus pada power, koneksi, dan troubleshooting.
+          </p>
+
+          <ul>
+            <li>Power wiring</li>
+            <li>Audio wiring</li>
+            <li>Connection testing</li>
+            <li>Troubleshooting</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Hands-on
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 07 -->
+
+      <article
+        class="card project"
+        data-category="electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 07
+          </div>
+
+          <h3>
+            Guitar Electronics
+          </h3>
+
+          <div class="project-stack">
+            Pickup • Audio Circuit • Effects
+          </div>
+
+          <p class="project-description">
+            Eksperimen elektronik gitar yang mencakup pickup,
+            audio wiring, rangkaian efek, soldering, dan testing.
+          </p>
+
+          <ul>
+            <li>Audio wiring</li>
+            <li>Guitar pickup</li>
+            <li>Effects circuit</li>
+            <li>Soldering</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Hands-on
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 08 -->
+
+      <article
+        class="card project"
+        data-category="embedded electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 08
+          </div>
+
+          <h3>
+            Morse Code Sound Generator
+          </h3>
+
+          <div class="project-stack">
+            Microcontroller • Button • Buzzer
+          </div>
+
+          <p class="project-description">
+            Proyek pembelajaran digital input, timing, dan audio output
+            untuk menghasilkan pola kode Morse.
+          </p>
+
+          <ul>
+            <li>Button input</li>
+            <li>Buzzer output</li>
+            <li>Timing logic</li>
+            <li>Portable power</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Completed Prototype
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 09 -->
+
+      <article
+        class="card project"
+        data-category="embedded electronics"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 09
+          </div>
+
+          <h3>
+            Arduino Sensor Laboratory
+          </h3>
+
+          <div class="project-stack">
+            Arduino • Sensors • LCD
+          </div>
+
+          <p class="project-description">
+            Kumpulan eksperimen sensor dan perangkat I/O
+            sebagai dasar embedded programming.
+          </p>
+
+          <ul>
+            <li>Temperature sensor</li>
+            <li>Pressure / BMP280</li>
+            <li>Distance sensor</li>
+            <li>Light & humidity</li>
+            <li>LCD & buzzer</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Experiment Series
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 10 -->
+
+      <article
+        class="card project"
+        data-category="embedded"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 10
+          </div>
+
+          <h3>
+            ESP8266 Wi-Fi Experiments
+          </h3>
+
+          <div class="project-stack">
+            ESP8266 • Wi-Fi • Firmware
+          </div>
+
+          <p class="project-description">
+            Eksperimen embedded dan jaringan menggunakan ESP8266
+            untuk memahami konfigurasi wireless dan firmware.
+          </p>
+
+          <ul>
+            <li>Wi-Fi configuration</li>
+            <li>Access Point concepts</li>
+            <li>Firmware flashing</li>
+            <li>Wireless testing</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Experiment
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 11 -->
+
+      <article
+        class="card project"
+        data-category="software"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 11
+          </div>
+
+          <h3>
+            Attendance Application
+          </h3>
+
+          <div class="project-stack">
+            Android • Kotlin • Data Management
+          </div>
+
+          <p class="project-description">
+            Konsep aplikasi absensi dengan check-in/check-out,
+            timestamp, foto, lokasi, dan ekspor data.
+          </p>
+
+          <ul>
+            <li>Android UI</li>
+            <li>Attendance records</li>
+            <li>Timestamp</li>
+            <li>Location</li>
+            <li>Excel / Google data workflow</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              In Development
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 12 -->
+
+      <article
+        class="card project"
+        data-category="hardware"
+      >
+
+        <div class="project-top-line"></div>
+
+        <div class="project-body">
+
+          <div class="project-number">
+            PROJECT 12
+          </div>
+
+          <h3>
+            Computer Hardware & OS Experiments
+          </h3>
+
+          <div class="project-stack">
+            PC • Laptop • Windows • Linux
+          </div>
+
+          <p class="project-description">
+            Eksperimen bongkar-pasang, diagnosis hardware,
+            instalasi sistem operasi, konfigurasi, dan troubleshooting.
+          </p>
+
+          <ul>
+            <li>Hardware diagnostics</li>
+            <li>OS installation</li>
+            <li>Driver configuration</li>
+            <li>System troubleshooting</li>
+          </ul>
+
+          <div class="project-footer">
+
+            <span class="status">
+              Hands-on
+            </span>
+
+            <a class="project-link" href="#">
+              Documentation →
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- =========================================================
+     ENGINEERING WORKFLOW
+========================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <div class="eyebrow">
+        04 — Engineering Workflow
+      </div>
+
+      <h2>
+        Cara Saya Mengerjakan Proyek
+      </h2>
+
+    </div>
+
+
+    <div class="workflow-grid">
+
+      <div class="card workflow-card">
+        <div class="workflow-number">01</div>
+        <h3>Define</h3>
+        <p>
+          Menentukan tujuan, kebutuhan, batasan,
+          dan parameter sistem.
+        </p>
+      </div>
+
+      <div class="card workflow-card">
+        <div class="workflow-number">02</div>
+        <h3>Design</h3>
+        <p>
+          Membuat konsep hardware, wiring,
+          software architecture, atau schematic.
+        </p>
+      </div>
+
+      <div class="card workflow-card">
+        <div class="workflow-number">03</div>
+        <h3>Build</h3>
+        <p>
+          Merakit prototype, melakukan soldering,
+          wiring, programming, dan konfigurasi.
+        </p>
+      </div>
+
+      <div class="card workflow-card">
+        <div class="workflow-number">04</div>
+        <h3>Measure</h3>
+        <p>
+          Menggunakan pengukuran, serial monitor,
+          multimeter, atau hasil komunikasi sistem.
+        </p>
+      </div>
+
+      <div class="card workflow-card">
+        <div class="workflow-number">05</div>
+        <h3>Debug</h3>
+        <p>
+          Mengisolasi masalah hardware,
+          software, power, wiring, atau protocol.
+        </p>
+      </div>
+
+      <div class="card workflow-card">
+        <div class="workflow-number">06</div>
+        <h3>Document</h3>
+        <p>
+          Mendokumentasikan hasil, masalah,
+          solusi, keterbatasan, dan pengembangan berikutnya.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PORTFOLIO CATEGORIES
+========================================================= -->
+
+<section id="categories">
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <div class="eyebrow">
+        05 — Portfolio Database
+      </div>
+
+      <h2>
+        Semua Area Portfolio
+      </h2>
+
+      <p class="section-description">
+        Repository ini dirancang sebagai bank data jangka panjang.
+        Setiap kategori nantinya dapat memiliki folder dokumentasi sendiri.
+      </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+      <div class="card category">
+        <div class="category-icon">🔌</div>
+        <h3>Electronics</h3>
+        <p>
+          Basic electronics, soldering, wiring,
+          power supply, audio circuits.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">🤖</div>
+        <h3>Arduino</h3>
+        <p>
+          Sensor, LCD, buzzer, input/output,
+          dan embedded experiments.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">📡</div>
+        <h3>ESP32</h3>
+        <p>
+          Wi-Fi, web server, monitoring,
+          communication dan embedded system.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">📶</div>
+        <h3>ESP8266</h3>
+        <p>
+          Wireless experiments, firmware,
+          networking dan IoT concepts.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">📐</div>
+        <h3>PCB Design</h3>
+        <p>
+          EasyEDA, schematic, PCB layout,
+          BOM dan prototype hardware.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">🏍️</div>
+        <h3>Automotive</h3>
+        <p>
+          Motorcycle electrical,
+          Bi-LED, audio dan ECU diagnostics.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">💻</div>
+        <h3>Software</h3>
+        <p>
+          Web, Android, Python,
+          programming dan data workflow.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">🖥️</div>
+        <h3>Computer Hardware</h3>
+        <p>
+          PC, laptop, operating system,
+          repair dan troubleshooting.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">🎨</div>
+        <h3>Multimedia</h3>
+        <p>
+          Graphic design, visual content,
+          editing dan digital production.
+        </p>
+      </div>
+
+      <div class="card category">
+        <div class="category-icon">🧪</div>
+        <h3>Experiments</h3>
+        <p>
+          Experimental projects,
+          testing dan technical research.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -2333,207 +2475,167 @@ footer {
 
 <section id="education">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-header reveal">
+    <div class="section-header">
 
-            <div class="section-label">
-                Education
-            </div>
+      <div class="eyebrow">
+        06 — Education & Experience
+      </div>
 
-            <h2 class="section-title">
-                Education & Experience
-            </h2>
-
-            <p class="section-description">
-
-                Perjalanan pendidikan dan pengalaman
-                organisasi/proyek.
-
-            </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-date">
-                    2023 — Present
-                </div>
-
-                <h3>
-                    Universitas Indraprasta PGRI
-                </h3>
-
-                <p>
-                    Program Studi Pendidikan Fisika.
-                    Fokus pada pendidikan fisika,
-                    sistem digital, eksperimen dan
-                    pengembangan kompetensi mengajar.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-date">
-                    SMK
-                </div>
-
-                <h3>
-                    SMK Hangtuah 1
-                </h3>
-
-                <p>
-                    Latar belakang Multimedia dengan
-                    pengalaman pada teknologi digital
-                    dan pengembangan media.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-date">
-                    Experience
-                </div>
-
-                <h3>
-                    Organisasi & Kepanitiaan
-                </h3>
-
-                <p>
-                    Memiliki pengalaman dalam berbagai
-                    kegiatan organisasi dan kepanitiaan,
-                    termasuk koordinasi kegiatan dan
-                    tanggung jawab kepemimpinan.
-                </p>
-
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-date">
-                    Technology Projects
-                </div>
-
-                <h3>
-                    Embedded & ECU Development
-                </h3>
-
-                <p>
-                    Mengembangkan project berbasis ESP32,
-                    electronics, K-Line communication,
-                    ECU diagnostic dan web interface.
-                </p>
-
-            </div>
-
-        </div>
+      <h2>
+        Pendidikan & Sertifikasi
+      </h2>
 
     </div>
 
-</section>
 
+    <div class="timeline">
+
+      <div class="card timeline-item">
+
+        <div class="timeline-date">
+          University
+        </div>
+
+        <h3>
+          Universitas Indraprasta PGRI
+        </h3>
+
+        <p>
+          Program Studi Pendidikan Fisika —
+          Fakultas Matematika dan Ilmu Pengetahuan Alam.
+        </p>
+
+      </div>
+
+
+      <div class="card timeline-item">
+
+        <div class="timeline-date">
+          Vocational Education
+        </div>
+
+        <h3>
+          SMK Hangtuah 1 — Multimedia
+        </h3>
+
+        <p>
+          Pendidikan vokasi multimedia yang menjadi dasar
+          kemampuan komputer, visual, desain, dan teknologi digital.
+        </p>
+
+      </div>
+
+
+      <div class="card timeline-item">
+
+        <div class="timeline-date">
+          Certification — 2020
+        </div>
+
+        <h3>
+          LSP Multimedia — BNSP
+        </h3>
+
+        <p>
+          Sertifikasi kompetensi bidang multimedia.
+        </p>
+
+      </div>
+
+
+      <div class="card timeline-item">
+
+        <div class="timeline-date">
+          Leadership
+        </div>
+
+        <h3>
+          Organisasi & Kepemimpinan
+        </h3>
+
+        <p>
+          Pengalaman sebagai Ketua KPPS Pemilu,
+          Ketua kegiatan 17 Agustus tingkat RT,
+          dan Ketua Kelas.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================================================
-     CERTIFICATES
+     GALLERY
 ========================================================= -->
 
-<section id="certificates">
+<section>
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-header reveal">
+    <div class="section-header">
 
-            <div class="section-label">
-                Certificates
-            </div>
+      <div class="eyebrow">
+        07 — Project Gallery
+      </div>
 
-            <h2 class="section-title">
-                Certifications & Achievements
-            </h2>
+      <h2>
+        Dokumentasi Visual
+      </h2>
 
-        </div>
-
-
-        <div class="certificates">
-
-
-            <article class="certificate reveal">
-
-                <div class="certificate-icon">
-                    🏆
-                </div>
-
-                <h3>
-                    LSP Multimedia
-                </h3>
-
-                <p>
-                    Sertifikasi kompetensi multimedia
-                    BNSP tahun 2020.
-                </p>
-
-            </article>
-
-
-            <article class="certificate reveal">
-
-                <div class="certificate-icon">
-                    🔬
-                </div>
-
-                <h3>
-                    Physics Olympiad
-                </h3>
-
-                <p>
-                    Pengalaman mengikuti kompetisi
-                    Olimpiade Fisika.
-                </p>
-
-            </article>
-
-
-            <article class="certificate reveal">
-
-                <div class="certificate-icon">
-                    ⭐
-                </div>
-
-                <h3>
-                    Leadership Experience
-                </h3>
-
-                <p>
-                    Pengalaman sebagai ketua kelas,
-                    kepanitiaan dan kegiatan masyarakat.
-                </p>
-
-            </article>
-
-        </div>
+      <p class="section-description">
+        Folder foto proyek dapat ditambahkan ke repository
+        dan ditampilkan di bagian ini.
+      </p>
 
     </div>
 
-</section>
 
+    <div class="gallery">
+
+      <div class="gallery-placeholder">
+        <div>
+          <strong>01</strong>
+          Electronics<br>
+          Assembly & Soldering
+        </div>
+      </div>
+
+      <div class="gallery-placeholder">
+        <div>
+          <strong>02</strong>
+          ESP32<br>
+          Embedded Projects
+        </div>
+      </div>
+
+      <div class="gallery-placeholder">
+        <div>
+          <strong>03</strong>
+          K-Line<br>
+          Automotive Electronics
+        </div>
+      </div>
+
+      <div class="gallery-placeholder">
+        <div>
+          <strong>04</strong>
+          PCB<br>
+          Design & Prototype
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -2542,91 +2644,110 @@ footer {
 
 <section id="contact">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="contact-box reveal">
+    <div class="section-header">
 
-            <div class="section-label">
-                Contact
-            </div>
+      <div class="eyebrow">
+        08 — Contact
+      </div>
 
-            <h2>
-                Let's build something
-                interesting.
-            </h2>
+      <h2>
+        Let's Connect
+      </h2>
 
-            <p>
+      <p class="section-description">
+        Terbuka untuk peluang kerja, internship,
+        kolaborasi proyek, engineering project,
+        electronics, embedded system, hardware,
+        software, maupun diskusi teknologi.
+      </p>
 
-                Terbuka untuk diskusi mengenai project
-                teknologi, embedded systems, electronics,
-                ECU diagnostics maupun kolaborasi lainnya.
-
-            </p>
-
-
-            <div class="contact-buttons">
+    </div>
 
 
-                <!-- EMAIL
-                     GANTI EMAIL DI BAWAH -->
+    <div class="contact-grid">
 
-                <a
-                    href="mailto: vierialfalaq@gmail.com"
-                    class="btn btn-primary">
+      <div class="card contact-card">
 
-                    ✉ Email
+        <h3>
+          Professional Links
+        </h3>
 
-                </a>
+        <div class="contact-links">
 
+          <a
+            class="contact-link"
+            href="https://github.com/Nyonyot02"
+            target="_blank"
+            rel="noopener"
+          >
+            💻 GitHub — Nyonyot02
+          </a>
 
-                <!-- WHATSAPP
-                     GANTI NOMOR DI BAWAH -->
+          <a
+            class="contact-link"
+            href="https://github.com/Nyonyot02/MUHAMMAD-VIERI-AL-FALAQ-CV-PORTOFOLIO-DATA-DIRI"
+            target="_blank"
+            rel="noopener"
+          >
+            📁 Portfolio Repository
+          </a>
 
-                <a
-                    href="https://wa.me/6289654998183?text=Halo%20Vieri%2C%20saya%20melihat%20portfolio%20Anda."
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary">
-
-                    💬 WhatsApp
-
-                </a>
-
-
-                <!-- GITHUB -->
-
-                <a
-                    href="https://github.com/Nyonyot02"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary">
-
-                    GitHub
-
-                </a>
-
-
-                <!-- CV -->
-
-                <a
-                    href="cv-vieri.pdf"
-                    download="CV-Muhammad-Vieri-Al-Falaq.pdf"
-                    class="btn btn-secondary">
-
-                    📄 Download CV
-
-                </a>
-
-            </div>
+          <a
+            class="contact-link"
+            href="cv-vieri.pdf"
+            target="_blank"
+          >
+            📄 Curriculum Vitae — PDF
+          </a>
 
         </div>
 
+      </div>
+
+
+      <div class="card contact-card">
+
+        <h3>
+          Curriculum Vitae
+        </h3>
+
+        <p>
+          CV lengkap tersedia dalam format PDF
+          di repository portfolio.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            class="button button-primary"
+            href="cv-vieri.pdf"
+            target="_blank"
+          >
+            📄 Buka CV
+          </a>
+
+          <a
+            class="button"
+            href="https://github.com/Nyonyot02"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
+
+  </div>
 
 </section>
 
 </main>
-
 
 
 <!-- =========================================================
@@ -2635,262 +2756,184 @@ footer {
 
 <footer>
 
-    <div class="container">
+  <div class="container footer-inner">
 
-        <div class="footer-content">
+    <div>
+      <strong>
+        Muhammad Vieri Al Falaq
+      </strong>
 
-            <div>
-                © <span id="year"></span>
-                <span class="footer-brand">
-                    Muhammad Vieri Al Falaq
-                </span>
-            </div>
+      <br>
 
-            <div>
-                Built with HTML • CSS • JavaScript
-            </div>
-
-        </div>
-
+      Engineering & Technology Portfolio
     </div>
+
+    <div>
+      © <span id="year"></span>
+      • Built as a living portfolio database
+    </div>
+
+  </div>
 
 </footer>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+  /*
+   * Mobile navigation
+   */
 
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+  const menuButton =
+    document.getElementById("menuButton");
 
-menuToggle.addEventListener("click", () => {
+  const navLinks =
+    document.getElementById("navLinks");
 
-    const opened = navLinks.classList.toggle("open");
+  menuButton.addEventListener("click", () => {
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        opened
-    );
+    navLinks.classList.toggle("open");
 
-    menuToggle.textContent =
-        opened ? "✕" : "☰";
-
-});
+  });
 
 
-/* Close mobile menu after clicking */
+  /*
+   * Close mobile menu after clicking link
+   */
 
-document
+  document
     .querySelectorAll(".nav-links a")
     .forEach(link => {
 
-        link.addEventListener("click", () => {
+      link.addEventListener("click", () => {
 
-            navLinks.classList.remove("open");
+        navLinks.classList.remove("open");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.textContent = "☰";
-
-        });
+      });
 
     });
 
 
-/* =========================================================
-   SCROLL REVEAL
-   Ringan karena IntersectionObserver
-========================================================= */
+  /*
+   * Project filter
+   */
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+  const filterButtons =
+    document.querySelectorAll(".filter-button");
 
+  const projects =
+    document.querySelectorAll(".project");
 
-if ("IntersectionObserver" in window) {
+  filterButtons.forEach(button => {
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
+    button.addEventListener("click", () => {
 
-                entries.forEach(entry => {
+      filterButtons.forEach(item => {
 
-                    if (entry.isIntersecting) {
+        item.classList.remove("active");
 
-                        entry.target
-                            .classList
-                            .add("visible");
+      });
 
-                        observer.unobserve(
-                            entry.target
-                        );
+      button.classList.add("active");
 
-                    }
+      const filter =
+        button.dataset.filter;
 
-                });
+      projects.forEach(project => {
 
-            },
-            {
-                threshold: 0.10,
-                rootMargin: "0px 0px -30px 0px"
-            }
-        );
+        if (filter === "all") {
 
+          project.classList.remove("hidden");
 
-    revealElements.forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-} else {
-
-    revealElements.forEach(element => {
-
-        element.classList.add("visible");
-
-    });
-
-}
-
-
-/* =========================================================
-   ACTIVE NAV
-========================================================= */
-
-const sections =
-    document.querySelectorAll("main section[id]");
-
-const links =
-    document.querySelectorAll(".nav-links a");
-
-
-if ("IntersectionObserver" in window) {
-
-    const navObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        links.forEach(link => {
-
-                            link.classList.remove(
-                                "active"
-                            );
-
-                        });
-
-
-                        const active =
-                            document.querySelector(
-                                `.nav-links a[href="#${entry.target.id}"]`
-                            );
-
-
-                        if (active) {
-
-                            active.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    }
-
-                });
-
-            },
-            {
-                rootMargin:
-                    "-35% 0px -55% 0px"
-            }
-        );
-
-
-    sections.forEach(section => {
-
-        navObserver.observe(section);
-
-    });
-
-}
-
-
-/* =========================================================
-   YEAR
-========================================================= */
-
-document.getElementById("year")
-    .textContent = new Date().getFullYear();
-
-
-/* =========================================================
-   IMAGE FALLBACK
-========================================================= */
-
-const profileImage =
-    document.querySelector(".profile-photo");
-
-if (profileImage) {
-
-    profileImage.addEventListener(
-        "error",
-        function () {
-
-            this.style.display = "none";
-
-            const fallback =
-                document.querySelector(
-                    ".profile-fallback"
-                );
-
-            if (fallback) {
-
-                fallback.style.display = "grid";
-
-            }
+          return;
 
         }
-    );
 
-}
+        const categories =
+          project.dataset.category
+            .split(" ");
+
+        if (categories.includes(filter)) {
+
+          project.classList.remove("hidden");
+
+        } else {
+
+          project.classList.add("hidden");
+
+        }
+
+      });
+
+    });
+
+  });
 
 
-/* =========================================================
-   PERFORMANCE
-   Disable heavy hover behavior on touch devices
-========================================================= */
+  /*
+   * Current year
+   */
 
-const isTouch =
-    window.matchMedia(
-        "(hover: none)"
-    ).matches;
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-if (isTouch) {
 
-    document
-        .querySelectorAll(
-            ".skill-card, .project-card"
-        )
-        .forEach(card => {
+  /*
+   * Active navigation
+   */
 
-            card.style.transition =
-                "border-color .2s ease";
+  const sections =
+    document.querySelectorAll("section[id]");
+
+  const navigationLinks =
+    document.querySelectorAll(".nav-links a");
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          navigationLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (
+              link.getAttribute("href") ===
+              "#" + entry.target.id
+            ) {
+
+              link.classList.add("active");
+
+            }
+
+          });
 
         });
 
-}
+      },
+      {
+        threshold: 0.25
+      }
+    );
+
+
+  sections.forEach(section => {
+
+    observer.observe(section);
+
+  });
 
 </script>
 
 </body>
 </html>
+```
